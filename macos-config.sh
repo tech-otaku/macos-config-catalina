@@ -1397,9 +1397,12 @@ fi
     	killall "${app}"  > /dev/null 2>&1
     done
     
-    
-# Desktop link to iMac mmacOS Catlina Configuration (Evernote)  
-	tee ~/Desktop/iMac.Catalina.Evernote.webloc > /dev/null 2>&1 <<EOF 
+
+
+
+if [ "$ModelName" == "imac" ]; then 
+	# Desktop link to iMac mmacOS Catlina Configuration (Evernote)  
+		tee ~/Desktop/iMac.Catalina.Evernote.webloc > /dev/null 2>&1 <<EOF 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -1410,8 +1413,10 @@ fi
 </plist>
 EOF
 
-# Desktop link to MacBook mmacOS Catlina Configuration (Evernote)  
-	tee ~/Desktop/MacBook.Catalina.Evernote.webloc > /dev/null 2>&1 <<EOF 
+elif [ "$ModelName" == "macbook" ]; then
+
+	# Desktop link to MacBook mmacOS Catlina Configuration (Evernote)  
+		tee ~/Desktop/MacBook.Catalina.Evernote.webloc > /dev/null 2>&1 <<EOF 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -1421,6 +1426,8 @@ EOF
 </dict>
 </plist>
 EOF
+
+fi
 
 # Add Safari Bookmark for iMac Configuration (Evernote)
 #/usr/libexec/PlistBuddy /Users/steve/Library/Safari/Bookmarks.plist -c "Add :Children:1:Children:0 dict" > /dev/null 2>&1
