@@ -233,97 +233,11 @@ EOD
 # #
 
 # System Preferences > Desktop & Screen Saver > Desktop
-    # `mojave-dynamic.db` is a copy of `desktoppicture.db` with the Desktop picture set to `Mojave (Dynamic)`
-    # `mojave-light-still.db` is a copy of `desktoppicture.db` with the Desktop picture set to `Mojave (Light, Still)`
-    # `mojave-dark-still.db` is a copy of `desktoppicture.db` with the Desktop picture set to `Mojave (Dark, Still)`
-    # `solar-gradients.db` is a copy of `desktoppicture.db` with the Desktop picture set to `Solar Gradients`
-    # `standard.db` is a copy of `desktoppicture.db` with the Desktop picture set to a standard picture
 
-    # DYNAMIC
-    # To use a Dynamic image, uncomment one of the following ensuring all other Dynamic and Standard commands are commented-out.
-
-        # Mojave (Dynamic)
-            cp "$ScriptPath"/db/mojave-dynamic.db ${HOME}/Library/Application\ Support/Dock/desktoppicture.db
-
-        # Mojave (Light, Still)
-            #cp "$ScriptPath"/db/mojave-light-still.db ${HOME}/Library/Application\ Support/Dock/desktoppicture.db
-
-        # Mojave (Dark, Still)
-            #cp "$ScriptPath"/db/mojave-dark-still.db ${HOME}/Library/Application\ Support/Dock/desktoppicture.db
-
-        # Solar Gradients
-            #cp "$ScriptPath"/db/solar-gradients.db ${HOME}/Library/Application\ Support/Dock/desktoppicture.db
-
-    # STANDARD
-    # To use a Standard image, first...
-
-        # ...uncomment this line...
-        #cp "$ScriptPath"/db/standard.db ${HOME}/Library/Application\ Support/Dock/desktoppicture.db
-
-        # ...then uncomment one of the following ensuring all other Dynamic and Standard commands are commented-out.
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Abstract 1.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Abstract 2.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Abstract 3.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Abstract 4.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Abstract Shapes 2.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Abstract Shapes.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Chroma 1.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Chroma 2.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Color Burst 1.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Color Burst 2.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Color Burst 3.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Desert 1.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Desert 2.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Desert 3.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Desert 4.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Desert 5.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Desert 6.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Desert 7.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/El Capitan 2.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/El Capitan.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 1.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 10.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 2.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 3.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 4.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 5.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 6.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 7.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 8.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Flower 9.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/High Sierra.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Ink Cloud.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Mojave Day.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Mojave Night.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Mojave.heic'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Reflection 1.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Reflection 2.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Reflection 3.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Reflection 4.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Sierra 2.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Sierra.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solar Gradients.heic'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Yosemite 3.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Yosemite 4.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Yosemite.jpg'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Blue Violet.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Cyan.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Dusty Rose.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Electric Blue.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Gold.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Ocher.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Plum.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Red Orange.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Rose Gold.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Silver.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Soft Pink.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Space Gray Pro.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Space Gray.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Stone.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Teal.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Turquoise Green.png'"
-        #sqlite3 ${HOME}/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Yellow.png'"
-
+	if [ -f /Users/steve/macos-desktop-master/set-desktop-catalina.sh ]; then
+		bash /Users/steve/macos-desktop-master/set-desktop-catalina.sh catalina
+	fi
+	
 
 # System Preferences > Desktop & Screen Saver > Screen Saver > Start after
     # Never
@@ -1105,6 +1019,7 @@ fi
 	
 	# no
 	#defaults write com.apple.itunes dontAutomaticallySyncIPods -bool false
+
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
