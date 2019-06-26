@@ -1399,7 +1399,7 @@ fi
     
     
 # Desktop link to iMac mmacOS Catlina Configuration (Evernote)  
-tee ~/Desktop/iMac.Evernote.webloc > /dev/null 2>&1 <<EOF 
+tee ~/Desktop/iMac.Catalina.Evernote.webloc > /dev/null 2>&1 <<EOF 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -1411,7 +1411,7 @@ tee ~/Desktop/iMac.Evernote.webloc > /dev/null 2>&1 <<EOF
 EOF
 
 # Desktop link to MacBook mmacOS Catlina Configuration (Evernote)  
-tee ~/Desktop/MacBook.Evernote.webloc > /dev/null 2>&1 <<EOF 
+tee ~/Desktop/MacBook.Catalina.Evernote.webloc > /dev/null 2>&1 <<EOF 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
