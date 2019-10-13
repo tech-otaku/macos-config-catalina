@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+BBEDIT="13.0"
+EVERNOTE="7.13_458080"
+FORKLIFT="3.3.4"
+LITTLESNITCH="4.4.3"
+NAVICAT="121"
+QUERIOUS="2.1.14"
+
 case "$1" in
 	adguard)
 		[ -f ~/Downloads/AdGuardInstaller.dmg ] && rm ~/Downloads/AdGuardInstaller.dmg
@@ -17,13 +24,13 @@ case "$1" in
 		mv ~/Downloads/Atom.app /Applications
 		;;
 	bbedit)
-		[ -f ~/Downloads/BBEdit_12.6.3.dmg ] && rm ~/Downloads/BBEdit_12.6.3.dmg
-		curl -o ~/Downloads/BBEdit_12.6.3.dmg -L https://s3.amazonaws.com/BBSW-download/BBEdit_12.6.3.dmg
-		hdiutil attach ~/Downloads/BBEdit_12.6.3.dmg
-		open /Volumes/BBEdit\ 12.6.3
+		[ -f ~/Downloads/BBEdit_${BBEDIT}.dmg ] && rm ~/Downloads/BBEdit_${BBEDIT}.dmg
+		curl -o ~/Downloads/BBEdit_${BBEDIT}.dmg -L https://s3.amazonaws.com/BBSW-download/BBEdit_${BBEDIT}.dmg
+		hdiutil attach ~/Downloads/BBEdit_${BBEDIT}.dmg
+		open /Volumes/BBEdit\ ${BBEDIT}
 		[ -d /Applications/BBEdit.app ] && rm -rf /Applications/BBEdit.app
-		cp -r /Volumes/BBEdit\ 12.6.3/BBEdit.app /Applications/BBEdit.app
-		hdiutil detach /Volumes/BBEdit\ 12.6.3
+		cp -r /Volumes/BBEdit\ ${BBEDIT}/BBEdit.app /Applications/BBEdit.app
+		hdiutil detach /Volumes/BBEdit\ ${BBEDIT}
 		;;
 	chronosync)
 		[ -f ~/Downloads/CS4_Download.dmg ] && rm ~/Downloads/CS4_Download.dmg
@@ -40,19 +47,19 @@ case "$1" in
 		open /Volumes/Dropbox\ Installer/Dropbox.app
 		;;
 	evernote)
-		[ -f ~/Downloads/Evernote_RELEASE_7.10_457732.dmg ] && rm ~/Downloads/Evernote_RELEASE_7.10_457732.dmg
-		curl -o ~/Downloads/Evernote_RELEASE_7.10_457732.dmg -L https://cdn1.evernote.com/mac-smd/public/Evernote_RELEASE_7.10_457732.dmg
-		yes | hdiutil attach /Users/steve/Downloads/Evernote_RELEASE_7.10_457732.dmg > /dev/null
+		[ -f ~/Downloads/Evernote_RELEASE_${EVERNOTE}.dmg ] && rm ~/Downloads/Evernote_RELEASE_${EVERNOTE}.dmg
+		curl -o ~/Downloads/Evernote_RELEASE_${EVERNOTE}.dmg -L https://cdn1.evernote.com/mac-smd/public/Evernote_RELEASE_${EVERNOTE}.dmg
+		yes | hdiutil attach /Users/steve/Downloads/Evernote_RELEASE_${EVERNOTE}.dmg > /dev/null
 		open /Volumes/Evernote
 		[ -d /Applications/Evernote.app ] && rm -rf /Applications/Evernote.app
 		cp -r /Volumes/Evernote/Evernote.app /Applications/Evernote.app
 		hdiutil detach /Volumes/Evernote
 		;;
 	forklift)
-		[ -f ~/Downloads/ForkLift3.3.3.zip ] && rm ~/Downloads/ForkLift3.3.3.zip
-		curl -o ~/Downloads/ForkLift3.3.3.zip -L https://download.binarynights.com/ForkLift3.3.3.zip
+		[ -f ~/Downloads/ForkLift${FORKLIFT}.zip ] && rm ~/Downloads/ForkLift${FORKLIFT}.zip
+		curl -o ~/Downloads/ForkLift${FORKLIFT}.zip -L https://download.binarynights.com/ForkLift${FORKLIFT}.zip
 		cd ~/Downloads
-		unzip -o ~/Downloads/ForkLift3.3.3.zip
+		unzip -o ~/Downloads/ForkLift${FORKLIFT}.zip
 		[ -d /Applications/ForkLift.app ] && rm -rf /Applications/ForkLift.app
 		mv ~/Downloads/ForkLift.app /Applications
 		[ -d ~/Downloads/__MACOSX ] &&  rm -rf ~/Downloads/__MACOSX
@@ -83,15 +90,15 @@ case "$1" in
 		mv ~/Downloads/iTerm.app /Applications
 		;;
 	littlesnitch)
-		[ -f ~/Downloads/LittleSnitch-4.3.2.dmg ] && rm ~/Downloads/LittleSnitch-4.3.2.dmg
-		curl -o ~/Downloads/LittleSnitch-4.3.2.dmg -L https://www.obdev.at/downloads/littlesnitch/LittleSnitch-4.3.2.dmg
-		hdiutil attach ~/Downloads/LittleSnitch-4.3.2.dmg
+		[ -f ~/Downloads/LittleSnitch-${LITTLESNITCH}.dmg ] && rm ~/Downloads/LittleSnitch-${LITTLESNITCH}.dmg
+		curl -o ~/Downloads/LittleSnitch-${LITTLESNITCH}.dmg -L https://www.obdev.at/downloads/littlesnitch/LittleSnitch-${LITTLESNITCH}.dmg
+		hdiutil attach ~/Downloads/LittleSnitch-${LITTLESNITCH}.dmg
 		#open /Volumes/Little\ Snitch\ 4.3.2
-		open /Volumes/Little\ Snitch\ 4.3.2/Little\ Snitch\ Installer.app
+		open /Volumes/Little\ Snitch\ ${LITTLESNITCH}/Little\ Snitch\ Installer.app
 		;;
 	navicat-mysql)
-		[ -f ~/Downloads/navicat121_mysql_en.dmg ] && rm ~/Downloads/navicat121_mysql_en.dmg
-		curl -o ~/Downloads/navicat121_mysql_en.dmg -L http://download3.navicat.com/download/navicat121_mysql_en.dmg
+		[ -f ~/Downloads/navicat${NAVICAT}_mysql_en.dmg ] && rm ~/Downloads/navicat${NAVICAT}_mysql_en.dmg
+		curl -o ~/Downloads/navicat${NAVICAT}_mysql_en.dmg -L http://download3.navicat.com/download/navicat${NAVICAT}_mysql_en.dmg
 		yes | hdiutil attach ~/Downloads/navicat121_mysql_en.dmg > /dev/null
 		open /Volumes/Navicat\ for\ MySQL
 		#[ -d /Applications/Evernote.app ] && rm -rf /Applications/Evernote.app
@@ -102,8 +109,8 @@ case "$1" in
 		[ -f ~/Downloads/Querious.dmg ] && rm ~/Downloads/Querious.dmg
 		curl -o ~/Downloads/Querious.dmg -L https://arweb-assets.s3.amazonaws.com/downloads/querious/Querious.dmg
 		yes | hdiutil attach ~/Downloads/Querious.dmg > /dev/null
-		cp -r /Volumes/Querious\ 2.1.13/Querious.app /Applications/Querious.app
-		hdiutil detach /Volumes/Querious\ 2.1.13
+		cp -r /Volumes/Querious\ ${QUERIOUS}/Querious.app /Applications/Querious.app
+		hdiutil detach /Volumes/Querious\ ${QUERIOUS}
 		;;
 	*)
 		echo "ERROR: Application '$1' invalid."
