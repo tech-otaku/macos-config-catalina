@@ -149,6 +149,10 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			move_directory_entry "D" "$SOURCE/Library/Application Support/A Better Finder Rename 10" "/Users/steve/Library/Application Support/A Better Finder Rename 10"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/net.publicspace.abfr10.plist" "/Users/steve/Library/Preferences/net.publicspace.abfr10.plist"
 			;;
+		adguard)		# AdGuard.app
+			move_directory_entry "D" "$SOURCE/Library/Application Support/com.adguard.mac.adguard" "/Users/steve/Library/Application Support/com.adguard.mac.adguard"
+			move_directory_entry "F" "$SOURCE/Library/Preferences/com.adguard.mac.adguard.plist" "/Users/steve/Library/Preferences/com.adguard.mac.adguard.plist"
+			;;
 		adobe)			# Adobe Acrobat Reader DC.app
 			move_directory_entry "D" "$SOURCE/Library/Preferences/Adobe" "/Users/steve/Library/Preferences/Adobe"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.adobe.AdobeRdrCEFHelper.plist" "/Users/steve/Library/Preferences/com.adobe.AdobeRdrCEFHelper.plist"
