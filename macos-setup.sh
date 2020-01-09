@@ -20,14 +20,23 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 	clear
 
 	# get source path e.g. `/Users/steve/TM\ Restore\ 2018-04-01` or `/Users/steve/TM\ Restore\ 2018-04-01/steve`
-	if [ -z "$SOURCE" ]; then
-		read -p "Enter source folder: " SOURCE
-	else
-		read -p "The current source folder is '$SOURCE'. Do you want to change this (Y/n)? " CHANGE
-		if [[ $CHANGE =~ [A-Z] && $CHANGE == "Y" ]]; then
-			read -p "Enter source folder?: " SOURCE
-		fi
+
+	if [ ! -f ~/.source ]; then
+		echo "Please wait...."
+        echo $(find /Users/steve/ -name TM*) > ~/.source
+    fi
+
+    SOURCE=$(cat ~/.source)
+
+	#if [ -z "$SOURCE" ]; then
+	#	read -p "Enter source folder: " SOURCE
+	#else
+	read -p "The current source folder is '$SOURCE'. Do you want to change this (Y/n)? " CHANGE
+	if [[ $CHANGE =~ [A-Z] && $CHANGE == "Y" ]]; then
+		read -p "Enter source folder?: " SOURCE
+        echo $SOURCE > ~/.source
 	fi
+	#fi
 
 	if [ ! -d "$SOURCE" ]; then
 		echo "ERROR: The directory '$SOURCE' does not exist"
@@ -76,28 +85,28 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 		unset TRG
 
 
-		SRC="$SOURCE"/Sundry
-		TRG=/Users/steve/Sundry
-		echo "Checking the folder $TRG exists"
-		if [ -d "$TRG" ]; then
-			echo "$TRG ---> OK."
-		else
-			if [ -d "$SRC" ]; then
-				read -p "ERROR: $TRG not found. Do you want to move $SRC to /Users/steve (Y/n)? " COPY
-				if [[ $COPY =~ [A-Z] && $COPY == "Y" ]]; then
-					move_directory_entry "D" "$SRC" "$TRG"
-				else
-					echo "ERROR: $TRG is required. Exiting..."
-					return
-				fi
-			else
-				echo "ERROR: Neither $SRC nor $TRG exist. Exiting..."
-				return
-			fi
-		fi
-
-		unset SRC
-		unset TRG
+		#SRC="$SOURCE"/Sundry
+		#TRG=/Users/steve/Sundry
+		#echo "Checking the folder $TRG exists"
+		#if [ -d "$TRG" ]; then
+		#	echo "$TRG ---> OK."
+		#else
+		#	if [ -d "$SRC" ]; then
+		#		read -p "ERROR: $TRG not found. Do you want to move $SRC to /Users/steve (Y/n)? " COPY
+		#		if [[ $COPY =~ [A-Z] && $COPY == "Y" ]]; then
+		#			move_directory_entry "D" "$SRC" "$TRG"
+		#		else
+		#			echo "ERROR: $TRG is required. Exiting..."
+		#			return
+		#		fi
+		#	else
+		#		echo "ERROR: Neither $SRC nor $TRG exist. Exiting..."
+		#		return
+		#	fi
+		#fi
+                #
+		#unset SRC
+		#unset TRG
 	
 	fi
 
