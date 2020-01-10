@@ -23,7 +23,7 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 
 	if [ ! -f ~/.source ]; then
 		echo "Please wait...."
-        echo $(find /Users/steve/ -name TM*) > ~/.source
+        echo $(find /Users/steve -name TM*) > ~/.source
     fi
 
     SOURCE=$(cat ~/.source)
