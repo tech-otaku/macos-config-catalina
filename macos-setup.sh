@@ -142,7 +142,8 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			;;
 		pictures)		# ~/Pictures
 			#populate "Pictures"	# FOR TESTING PURPOSES ONLY!
-			move_directory_entry "D" "$SOURCE/Pictures" "/Users/steve/Pictures"
+			read -p "WARNING: This script should not be used to restore the Pictures folder from $SOURCE/. Please restore any missing files and folders manually. Press enter to continue."
+			#move_directory_entry "D" "$SOURCE/Pictures" "/Users/steve/Pictures"
 			;;
 		public)			# ~/Public/Drop Box
 			#populate "Public"	# FOR TESTING PURPOSES ONLY!
