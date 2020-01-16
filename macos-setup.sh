@@ -120,12 +120,12 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 		# * * * * USER FOLDERS * * * *
 		desktop)		# ~/Desktop
 			#populate "Desktop"	# FOR TESTING PURPOSES ONLY!
-			read -p "WARNING: The Desktop folder is now synced with iCloud and will not be restored from $SOURCE/. Press enter to continue."
+			read -p "WARNING: The Desktop folder is now synced with iCloud and should not be restored from $SOURCE/. Press enter to continue."
 			#move_directory_entry "D" "$SOURCE/Desktop" "/Users/steve/Desktop"
 			;;
 		documents)		# ~/Documents
 			#populate "Documents"	# FOR TESTING PURPOSES ONLY!
-			read -p "WARNING: The Documents folder is now synced with iCloud and will not be restored from $SOURCE/. Press enter to continue."
+			read -p "WARNING: The Documents folder is now synced with iCloud and should not be restored from $SOURCE/. Press enter to continue."
 			#move_directory_entry "D" "$SOURCE/Documents" "/Users/steve/Documents"
 			;;
 		downloads)		# ~/Downloads
@@ -142,7 +142,7 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			;;
 		pictures)		# ~/Pictures
 			#populate "Pictures"	# FOR TESTING PURPOSES ONLY!
-			read -p "WARNING: This script should not be used to restore the Pictures folder from $SOURCE/. Please restore any missing files and folders manually. Press enter to continue."
+			read -p "WARNING: This script should not be used to restore the Pictures folder from $SOURCE/. Please restore any missing files and folders manually after configuring iCloud. Press enter to continue."
 			#move_directory_entry "D" "$SOURCE/Pictures" "/Users/steve/Pictures"
 			;;
 		public)			# ~/Public/Drop Box
