@@ -336,7 +336,7 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 		logioptions)	# Logi Options.app
 			;;
 		mail)			# Mail.app
-			move_directory_entry "D" "$SOURCE/Library/Accounts" "/Users/steve/Library/Accounts"
+			#move_directory_entry "D" "$SOURCE/Library/Accounts" "/Users/steve/Library/Accounts"
 			move_directory_entry "D" "$SOURCE/Library/Mail" "/Users/steve/Library/Mail"
 			#move_directory_entry "D" "$SOURCE/Library/Containers/com.apple.mail" "/Users/steve/Library/Containers/com.apple.mail"
 			#move_directory_entry "D" "$SOURCE/Library/Containers/com.apple.MailCacheDelete" "/Users/steve/Library/Containers/com.apple.MailCacheDelete"
