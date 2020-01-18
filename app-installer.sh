@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-BBEDIT="13.0"
+BBEDIT="13.0.4"
 EVERNOTE="7.13_458080"
-FORKLIFT="3.3.4"
+FORKLIFT="3.3.7"
 LITTLESNITCH="4.4.3"
 NAVICAT="121"
-QUERIOUS="2.1.14"
+QUERIOUS="2.1.17"
 
 case "$1" in
 	adguard)
