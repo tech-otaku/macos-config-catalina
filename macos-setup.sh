@@ -212,9 +212,9 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			;;
 		bbedit)			# BBEdit.app
 			#create_symbolic_link "/Users/steve/Dropbox/BBEdit" "/Users/steve/Library/Application Support/BBEdit"
-			move_directory_entry "D" "$SOURCE/Library/BBEdit" "/Users/steve/Library/BBEdit"
-			move_directory_entry "F" "$SOURCE/Library/Preferences/com.barebones.bbedit.plist" "/Users/steve/Library/Preferences/com.barebones.bbedit.plist"
-			move_directory_entry "D" "$SOURCE/Library/Preferences/com.barebones.bbedit.PreferenceData" "/Users/steve/Library/Preferences/com.barebones.bbedit.PreferenceData"
+			#move_directory_entry "D" "$SOURCE/Library/BBEdit" "/Users/steve/Library/BBEdit"
+			#move_directory_entry "F" "$SOURCE/Library/Preferences/com.barebones.bbedit.plist" "/Users/steve/Library/Preferences/com.barebones.bbedit.plist"
+			#move_directory_entry "D" "$SOURCE/Library/Preferences/com.barebones.bbedit.PreferenceData" "/Users/steve/Library/Preferences/com.barebones.bbedit.PreferenceData"
 			# move_directory_entry "D" "$SOURCE/Library/Caches/com.barebones.bbedit" "/Users/steve/Library/Caches/com.barebones.bbedit"
 			move_directory_entry "D" "$SOURCE/Library/Containers/com.barebones.bbedit" "/Users/steve/Library/Containers/com.barebones.bbedit"
 			move_directory_entry "D" "$SOURCE/Library/Application Scripts/com.barebones.bbedit" "/Users/steve/Library/Application Scripts/com.barebones.bbedit"
