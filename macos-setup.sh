@@ -544,6 +544,10 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			create_symbolic_link "/Users/steve/Dropbox/.bash_profile_shared" "/Users/steve/.bash_profile"
 			move_directory_entry "F" "$SOURCE/.hushlogin" "/Users/steve/.hushlogin"
 			;;
+		zsh)
+			move_directory_entry "F" "$SOURCE/.hushlogin" "/Users/steve/.hushlogin"
+			move_directory_entry "F" "$SOURCE/.zshenv" "/Users/steve/.zshenv"
+			;;
 		fonts)
 			move_directory_entry "D" "$SOURCE/Library/Fonts" "/Users/steve/Library/Fonts"
 			;;
