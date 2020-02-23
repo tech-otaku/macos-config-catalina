@@ -3,7 +3,7 @@
 # NSGlobalDomain is synonymous with the .GlobalPreferences
 # '-g' and '-globalDomain' can be used as synonyms for NSGlobalDomain or .GlobalPreferences
 
-# macOS Mojave 10.14 Beta
+# macOS Catalina 10.15
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -89,11 +89,17 @@ EOD
 # #
 
 # System Preferences > General > Appearance
-    # Dark
+    # Light (For this mode neither "AppleInterfaceStyle" nor "AppleInterfaceStyleSwitchesAutomatically" should exist so delete them both)
+    defaults delete -g AppleInterfaceStyle 2> /dev/null     						# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
+    defaults delete -g AppleInterfaceStyleSwitchesAutomatically 2> /dev/null		# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
+    
+    # Dark  (For this mode "AppleInterfaceStyleSwitchesAutomatically" shouldn't exist so delete it)
     #defaults write -g AppleInterfaceStyle -string Dark
-
-    # Light
-    defaults delete -g AppleInterfaceStyle 2> /dev/null     # Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
+    #defaults delete -g AppleInterfaceStyleSwitchesAutomatically 2> /dev/null		# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
+    
+    # Automatic  (For this mode "AppleInterfaceStyle" shouldn't exist so delete it)
+    #defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
+    #defaults delete -g AppleInterfaceStyle 2> /dev/null     						# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
 
 
 # System Preferences > General > Accent Colour
@@ -953,11 +959,18 @@ fi
 	defaults write com.apple.finder FXRemoveOldTrashItems -bool false
 
 
-# Finder > Preferences... > Advanced > Keep folders on top when sorting by name
+# Finder > Preferences... > Advanced > Keep folders on top: in windows when sorting by name
 	# checked
 	#defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 	defaults write com.apple.finder _FXSortFoldersFirst -bool false
+	
+
+# Finder > Preferences... > Advanced > Keep folders on top: On Desktop
+	# checked
+	#defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true
+
+	defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool false
 
 
 # Finder > Preferences... > Advanced > When performing a search:
@@ -971,40 +984,45 @@ fi
 	#defaults write com.apple.finder FXDefaultSearchScope -string "SCsp"
 
 
-# Finder > View > Hide Tab Bar
-	#defaults write com.apple.finder ShowTabView -bool true
-	defaults write com.apple.finder ShowTabView -bool false
+# Finder > View > Show|Hide Tab Bar
+	# Show
+	#NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow -bool true	# Spelling mistake 'Shoud' instead of 'Should' courtesy of Apple!
+	#defaults write com.apple.finder ShowTabView -bool true			# Prior to  macOS Catalina 
+	
+	# Hide
+	NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow -bool false	# Spelling mistake 'Shoud' instead of 'Should' courtesy of Apple!
+	#defaults write com.apple.finder ShowTabView -bool false		# Prior to  macOS Catalina
 
 
-# Finder > View > Show Path Bar
-	# checked
+# Finder > View > Show|Hide Path Bar
+	# Show
 	defaults write com.apple.finder ShowPathbar -bool true
 
-	# unchecked
+	# Hide
 	#defaults write com.apple.finder ShowPathbar -bool false
 
 
-# Finder > View > Show Status Bar
-	# checked
+# Finder > View > Show|Hide Status Bar
+	# Show
 	defaults write com.apple.finder ShowStatusBar -bool true
 
-	# unchecked
+	# Hide
 	#defaults write com.apple.finder ShowStatusBar -bool false
 
 
-# Finder > View > Show Sidebar
-	# checked
+# Finder > View > Show|Hide Sidebar
+	# Show
 	defaults write com.apple.finder ShowSidebar -bool true
 
-	# unchecked
+	# Hide
 	#defaults write com.apple.finder ShowSidebar -bool false
 
 
-# Finder > View > Show Preview
-	# checked
+# Finder > View > Show|Hide Preview
+	# Show
 	defaults write com.apple.finder ShowPreviewPane -bool true
 
-	# unchecked
+	# Hide
 	#defaults write com.apple.finder ShowPreviewPane -bool false
 
 
@@ -1064,7 +1082,7 @@ fi
     #defaults write com.apple.finder FXPreferredViewStyle -string "glyv"
 
 
-# Show the ~/Library folder IMPORTANT: No longer works with High Sierra
+# Show the ~/Library folder IMPORTANT: No longer works with High Sierra and later
     chflags nohidden ~/Library
 
 
