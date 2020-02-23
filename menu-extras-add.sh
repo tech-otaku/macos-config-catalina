@@ -88,7 +88,7 @@ esac
 
 # Check if key already exists in com.apple.systemuiserver.plist, if not create it
 if [[ ! $(/usr/libexec/PlistBuddy -c "Print :NSStatusItem\ Visible\ $domain" $plist 2>/dev/null) ]]; then
-    # The key doesn'y exist so create it
+    # The key doesn't exist so create it
     /usr/libexec/PlistBuddy -c "Add :NSStatusItem\ Visible\ $domain bool true" $plist
 
     # The menuExtras key should already exist as it's included in the default com.apple.systemuiserver.plist for a new user, but let's check anyway and create it if it doesn't
