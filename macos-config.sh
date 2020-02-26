@@ -242,9 +242,15 @@ echo "...General"
 
 # System Preferences > Desktop & Screen Saver > Desktop
 
-	if [ -f /Users/steve/macos-desktop-master/set-desktop-catalina.sh ]; then
-		bash /Users/steve/macos-desktop-master/set-desktop-catalina.sh catalina
+
+	# The Desktop picture is set using 'set-desktop-catalina.sh'. See https://github.com/tech-otaku/macos-desktop/blob/master/README.md
+	if [ ! -f /Users/steve/macos-config-catalina-master/set-desktop-catalina.sh ]; then
+		curl -o "${ScriptPath}/set-desktop-catalina.sh" -L https://raw.githubusercontent.com/tech-otaku/macos-desktop/master/set-desktop-catalina.sh
 	fi
+	
+	chmod +x "$ScriptPath/set-desktop-catalina.sh"
+	
+	"$ScriptPath/set-desktop-catalina.sh catalina"
 	
 
 # System Preferences > Desktop & Screen Saver > Screen Saver > Start after
@@ -1342,28 +1348,33 @@ echo "Configured Finder Icon View Settings"
 
 # These menu extras should appear in the menubar. Add them to the current items if they don't yet exist.
     if [ "$ModelName" == "imac" ]; then
-        bash "$ScriptPath"/menu-extras-add.sh airport
-        bash "$ScriptPath"/menu-extras-add.sh appleuser
-        bash "$ScriptPath"/menu-extras-add.sh bluetooth
-        bash "$ScriptPath"/menu-extras-add.sh clock
-        #bash "$ScriptPath"/menu-extras-add.sh scriptmenu
-        #bash "$ScriptPath"/menu-extras-add.sh textinput
-        bash "$ScriptPath"/menu-extras-add.sh TimeMachine
-        bash "$ScriptPath"/menu-extras-add.sh volume
-        bash "$ScriptPath"/menu-extras-add.sh vpn
+            
+        # Bluetooth
+        	open /System/Library/CoreServices/Menu\ Extras/Bluetooth.menu
         
-        # Script Editor Menu
-			[ -f ${HOME}/Library/Preferences/com.apple.scriptmenu.plist ] && rm ${HOME}/Library/Preferences/com.apple.scriptmenu.plist 
-			defaults write com.apple.scriptmenu ScriptMenuEnabled -bool true
-			defaults write com.apple.scriptmenu ShowLibraryScripts -bool true
-			defaults write com.apple.scriptmenu PutAppScriptsFirst -bool true
+        # Clock
+        	open /System/Library/CoreServices/Menu\ Extras/Clock.menu
         
-        # Text Input Menu
-			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist
+        # Script Editor 
+        	open /System/Library/CoreServices/Script\ Menu.app 
+        	
+        # Text Input
 			defaults write com.apple.TextInputMenu visible -bool true
-		
-			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist	
 			defaults write com.apple.TextInputMenuAgent NSStatusItem\ Visible\ Item-0 -bool true
+       
+        # Time Machine        
+        	open /System/Library/CoreServices/Menu\ Extras/TimeMachine.menu
+        
+        # Volume
+        	open /System/Library/CoreServices/Menu\ Extras/Volume.menu
+
+		# VPN        
+			open /System/Library/CoreServices/Menu\ Extras/VPN.menu
+			
+		# Wi-Fi
+    		open /System/Library/CoreServices/Menu\ Extras/AirPort.menu
+
+        
         
     elif [ "$ModelName" == "macbook" ]; then
         bash "$ScriptPath"/menu-extras-add.sh airport
