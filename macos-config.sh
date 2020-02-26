@@ -23,10 +23,10 @@
 # This Bash script executes several AppleScripts which target other applications like the Finder, Script Editor, System Events and System Preferences. Beginning with macOS Mojave, applications that control other applications need to be given explicit authority the first time they request to do so. As it is the Terminal application that ultimately wants to control the other applications by running AppleScripts, macOS Mojave will prompt the user to grant the Terminal application authority to do so for each individual application to which the response should be `OK`. The Terminal application will then appear in System Preferences > Security & Privacy > Privacy > Automation with a list of applications it has authority to control. Authority to control an application can later be revoked on a per application basis by unchecking the appropriate application in the list.
 
 # To avoid having the user respond to prompts at different times throughout the execution of this Bash script, the following AppleScripts – when run – will ensure that authority is given up-front.
-    osascript -e 'tell app "Finder" to display notification "Terminal has been granted access to control Finder.app under System Preferences > Security & Privacy > Privacy > Automation" with title "Finder says" subtitle "Pardon my appearance"' > /dev/null 2>&1
-    osascript -e 'tell app "Script Editor" to display notification "Terminal has been granted access to control Script Editor.app under System Preferences > Security & Privacy > Privacy > Automation" with title "Script Editor says" subtitle "Pardon my appearance"' > /dev/null 2>&1
-    osascript -e 'tell app "System Events" to display notification "Terminal has been granted access to control System Events.app under System Preferences > Security & Privacy > Privacy > Automation" with title "System Events says" subtitle "Pardon my appearance"' > /dev/null 2>&1
-    osascript -e 'tell app "System Preferences" to display notification "Terminal has been granted access to control System Preferences.app under System Preferences > Security & Privacy > Privacy > Automation" with title "System Preferences says" subtitle "Pardon my appearance"' > /dev/null 2>&1
+    osascript -e 'tell app "Finder" to display notification "Terminal has been granted access to control Finder.app under System Preferences > Security & Privacy > Privacy > Automation" with title "Pardon My Appearance"' > /dev/null 2>&1
+    osascript -e 'tell app "Script Editor" to display notification "Terminal has been granted access to control Script Editor.app under System Preferences > Security & Privacy > Privacy > Automation" with title "Pardon My Appearance"' > /dev/null 2>&1
+    osascript -e 'tell app "System Events" to display notification "Terminal has been granted access to control System Events.app under System Preferences > Security & Privacy > Privacy > Automation" with title "Pardon My Appearance"' > /dev/null 2>&1
+    osascript -e 'tell app "System Preferences" to display notification "Terminal has been granted access to control System Preferences.app under System Preferences > Security & Privacy > Privacy > Automation" with title "Pardon My Appearance"' > /dev/null 2>&1
 
 
 # AppleScript to check if GUI Scripting is enabled. Will rightly fail for new macOS installations.
@@ -1476,17 +1476,17 @@ fi
 #/usr/libexec/PlistBuddy /Users/steve/Library/Safari/Bookmarks.plist -c "Add :Children:1:Children:0:WebBookmarkType string WebBookmarkTypeLeaf"
 
 # Execute the AppleScript configuration script
-    osascript "$ScriptPath"/Scripts/Config\ All.scpt > /dev/null 2>&1
+    #osascript "$ScriptPath"/Scripts/Config\ All.scpt > /dev/null 2>&1
 
 
 # Some settings are only effective after the machine is restarted, so restart. Displays normal macOS restart dialog.
-	osascript > /dev/null 2>&1 <<EOD
-	tell application "System Events"
-		tell process "Finder"
-			tell menu bar 1
-				click menu "Apple"
-				tell menu "Apple" to click menu item "Restart…"
-			end tell
+osascript > /dev/null 2>&1 <<EOD
+tell application "System Events"
+	tell process "Finder"
+		tell menu bar 1
+			click menu "Apple"
+			tell menu "Apple" to click menu item "Restart…"
 		end tell
 	end tell
-	EOD
+end tell
+EOD
