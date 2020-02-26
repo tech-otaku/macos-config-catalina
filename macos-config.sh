@@ -472,7 +472,7 @@ elif [ "$ModelName" == "macbook" ]; then
 
     # System Preferences > Energy Saver > Power Adapter > Turn display off after:
         # 1 min [1] --> 3 hrs [180]
-        sudo pmset -c displaysleep 1
+        sudo pmset -c displaysleep 1 > /dev/null 2>&1
 
         # Never [0]
         #sudo pmset -c displaysleep 0
@@ -480,7 +480,7 @@ elif [ "$ModelName" == "macbook" ]; then
 
     # System Preferences > Energy Saver > Power Adapter > Prevent computer from sleeping automatically when the display is off
         # checked (Yes. When this option is checked `sleep` = 0)
-        sudo pmset -c sleep 0
+        sudo pmset -c sleep 0 > /dev/null 2>&1
 
         # unchecked
         #sudo pmset -c sleep 1
@@ -491,7 +491,7 @@ elif [ "$ModelName" == "macbook" ]; then
         #sudo pmset -c disksleep 1
 
         # unchecked
-        sudo pmset -c disksleep 0
+        sudo pmset -c disksleep 0 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Power Adapter > Wake for Wi-Fi network access
@@ -499,7 +499,7 @@ elif [ "$ModelName" == "macbook" ]; then
         #sudo pmset -c womp 1
 
         # unchecked
-        sudo pmset -c womp 0
+        sudo pmset -c womp 0  > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Power Adapter > Enable Power Nap while plugged into a power adapter
@@ -507,7 +507,7 @@ elif [ "$ModelName" == "macbook" ]; then
         #sudo pmset -c powernap 1
 
         # unchecked
-        sudo pmset -c powernap 0
+        sudo pmset -c powernap 0 > /dev/null 2>&1
 
 fi
 
@@ -1392,7 +1392,7 @@ fi
 	
 	# Bash
 	#brew install bash
-	echo "/usr/local/bin/bash" | tee /etc/shells
+	echo "/usr/local/bin/bash" | sudo tee /etc/shells
 	chsh -s /usr/local/bin/bash steve
 	
 	#bash "$ScriptPath"/app-installer.sh iterm
