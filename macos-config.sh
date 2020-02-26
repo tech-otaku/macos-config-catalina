@@ -1375,6 +1375,12 @@ echo "Configured Finder Icon View Settings"
         bash "$ScriptPath"/menu-extras-add.sh TimeMachine
         bash "$ScriptPath"/menu-extras-add.sh volume
         
+        # Script Editor Menu
+			[ -f ${HOME}/Library/Preferences/com.apple.scriptmenu.plist ] && rm ${HOME}/Library/Preferences/com.apple.scriptmenu.plist 
+			defaults write com.apple.scriptmenu ScriptMenuEnabled -bool true
+			defaults write com.apple.scriptmenu ShowLibraryScripts -bool true
+			defaults write com.apple.scriptmenu PutAppScriptsFirst -bool true
+        
         # Text Input Menu
 			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist
 			defaults write com.apple.TextInputMenu visible -bool true
