@@ -231,6 +231,8 @@ EOD
 # System Preferences > General > Use font smoothing when available
     # GUI Scripting: /Users/steve/developer/Github/macos-config-mojave/sys-prefs.scpt
 
+echo "Configured System Preferences..."
+echo "...General"
 
 
 
@@ -270,6 +272,7 @@ EOD
     # 1 Hour
     #defaults -currentHost write com.apple.screensaver idleTime -int 3600
 
+echo "...Desktop & Screensaver"
 
 
 
@@ -375,6 +378,7 @@ EOD
     # unchecked
     #defaults write com.apple.dock show-recents -bool false
 
+echo "...Dock"
 
 
 
@@ -386,50 +390,50 @@ if [ "$ModelName" == "imac" ]; then
 
     # System Preferences > Energy Saver > Turn display off after:
         # 1 min [1] --> 3 hrs [180]
-        sudo pmset -c displaysleep 1
+        sudo pmset -c displaysleep 1 > /dev/null 2>&1
 
         # Never [0]
-        #sudo pmset -c displaysleep 0
+        #sudo pmset -c displaysleep 0 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Prevent computer from sleeping automatically when the display is off
         # checked (Yes. When this option is checked `sleep` = 0)
-        sudo pmset -c sleep 0
+        sudo pmset -c sleep 0 > /dev/null 2>&1
 
         # unchecked
-        #sudo pmset -c sleep 1
+        #sudo pmset -c sleep 1 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Put hard disks to sleep when possible
         # checked
-        #sudo pmset -c disksleep 1
+        #sudo pmset -c disksleep 1 > /dev/null 2>&1
 
         # unchecked
-        sudo pmset -c disksleep 0
+        sudo pmset -c disksleep 0 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Wake for network access
         # checked
-        #sudo pmset -c womp 1
+        #sudo pmset -c womp 1 > /dev/null 2>&1
 
         # unchecked
-        sudo pmset -c womp 0
+        sudo pmset -c womp 0 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Start up automatically after power failure
         # checked
-        #sudo pmset -c autorestart 1
+        #sudo pmset -c autorestart 1 > /dev/null 2>&1
 
         # unchecked
-        sudo pmset -c autorestart 0
+        sudo pmset -c autorestart 0 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Enable Power Nap
         # checked
-        #sudo pmset -c powernap 1
+        #sudo pmset -c powernap 1 > /dev/null 2>&1
 
         # unchecked
-        sudo pmset -c powernap 0
+        sudo pmset -c powernap 0 > /dev/null 2>&1
 
 
 elif [ "$ModelName" == "macbook" ]; then
@@ -438,34 +442,34 @@ elif [ "$ModelName" == "macbook" ]; then
 
     # System Preferences > Energy Saver > Battery > Turn display off after:
         # 1 min [1] --> 3 hrs [180]
-        sudo pmset -b displaysleep 1
+        sudo pmset -b displaysleep 1 > /dev/null 2>&1
 
         # Never [0]
-        #sudo pmset -b displaysleep 0
+        #sudo pmset -b displaysleep 0 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Battery > Put hard disks to sleep when possible
         # checked
-        #sudo pmset -b disksleep 1
+        #sudo pmset -b disksleep 1 > /dev/null 2>&1
 
         # unchecked
-        sudo pmset -b disksleep 0
+        sudo pmset -b disksleep 0 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Battery > Slightly dim the display while on battery power
         # checked
-        sudo pmset -b lessbright 1
+        sudo pmset -b lessbright 1 > /dev/null 2>&1
 
         # unchecked
-        #sudo pmset -b lessbright 0
+        #sudo pmset -b lessbright 0 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Battery > Enable Power Nap while on battery power
         # checked
-        #sudo pmset -b powernap 1
+        #sudo pmset -b powernap 1 > /dev/null 2>&1
 
         # unchecked
-        sudo pmset -b powernap 0
+        sudo pmset -b powernap 0 > /dev/null 2>&1
 
 
     # Power Adapter Settings [-c]
@@ -475,7 +479,7 @@ elif [ "$ModelName" == "macbook" ]; then
         sudo pmset -c displaysleep 1 > /dev/null 2>&1
 
         # Never [0]
-        #sudo pmset -c displaysleep 0
+        #sudo pmset -c displaysleep 0 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Power Adapter > Prevent computer from sleeping automatically when the display is off
@@ -483,12 +487,12 @@ elif [ "$ModelName" == "macbook" ]; then
         sudo pmset -c sleep 0 > /dev/null 2>&1
 
         # unchecked
-        #sudo pmset -c sleep 1
+        #sudo pmset -c sleep 1 > /dev/null 2>&1
 
 
     # System Preferences > Energy Saver > Power Adapter > Put hard disks to sleep when possible
         # checked
-        #sudo pmset -c disksleep 1
+        #sudo pmset -c disksleep 1 > /dev/null 2>&1
 
         # unchecked
         sudo pmset -c disksleep 0 > /dev/null 2>&1
@@ -496,7 +500,7 @@ elif [ "$ModelName" == "macbook" ]; then
 
     # System Preferences > Energy Saver > Power Adapter > Wake for Wi-Fi network access
         # checked
-        #sudo pmset -c womp 1
+        #sudo pmset -c womp 1 > /dev/null 2>&1
 
         # unchecked
         sudo pmset -c womp 0  > /dev/null 2>&1
@@ -504,13 +508,14 @@ elif [ "$ModelName" == "macbook" ]; then
 
     # System Preferences > Energy Saver > Power Adapter > Enable Power Nap while plugged into a power adapter
         # checked
-        #sudo pmset -c powernap 1
+        #sudo pmset -c powernap 1 > /dev/null 2>&1
 
         # unchecked
         sudo pmset -c powernap 0 > /dev/null 2>&1
 
 fi
 
+echo "...Energy Saver"
 
 
 
@@ -527,6 +532,7 @@ fi
     defaults write -g NSAutomaticDashSubstitutionEnabled -bool false
     defaults write -g NSAutomaticQuoteSubstitutionEnabled -bool false
 
+echo "...Keyboard"
 
 
 
@@ -544,6 +550,7 @@ fi
     # unchecked
     defaults write -g com.apple.swipescrolldirection -bool false
 
+echo "...Mouse"
 
 
 
@@ -560,6 +567,7 @@ fi
     # unchecked
     defaults write -g com.apple.swipescrolldirection -bool false
 
+echo "...Trackpad"
 
 
 
@@ -599,6 +607,7 @@ fi
         #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server ServerDescription -string "0x6D746873"
     fi
 
+echo "...Sharing"
 
 
 
@@ -837,6 +846,7 @@ fi
 # System Preferences > Date & Time > Show date - Unchecked
 	# defaults write com.apple.menuextra.clock DateFormat -string "h:mm"
 
+echo "...Date & Time"
 
 
 
@@ -1025,6 +1035,8 @@ fi
 	# Hide
 	#defaults write com.apple.finder ShowPreviewPane -bool false
 
+echo "Configured Finder"
+
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1037,6 +1049,8 @@ fi
 	
 	# no
 	#defaults write com.apple.itunes dontAutomaticallySyncIPods -bool false
+
+echo "Configured iTunes"
 
 
 
@@ -1139,6 +1153,7 @@ fi
         # Enable
         #defaults write com.apple.screencapture disable-shadow -bool false
 
+echo "Configured hidden options"
 
 
 
@@ -1317,6 +1332,7 @@ fi
     #fi
     #/usr/libexec/PlistBuddy -c "$action :$key $type Kind" ~/Library/Preferences/com.apple.finder.plist
 
+echo "Configured Finder Icon View Settings"
 
 
 
@@ -1345,7 +1361,8 @@ fi
         bash "$ScriptPath"/menu-extras-add.sh TimeMachine
         bash "$ScriptPath"/menu-extras-add.sh volume
     fi
-
+    
+echo "Configured Menu Bar Extras"
 
 
 
@@ -1381,6 +1398,8 @@ fi
 # Icon size = <key>preferreditemsize</key><integer>-1</integer>
 # View content as Grid = <key>viewas</key><integer>2</integer>
     defaults write com.apple.dock persistent-others -array-add '<dict><key>tile-data</key><dict><key>list-type</key><integer>2</integer><key>preferreditemsize</key><integer>-1</integer><key>viewas</key><integer>2</integer></dict><key>tile-type</key><string>recents-tile</string></dict>'
+    
+echo "Configured Dock Folders"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1397,7 +1416,8 @@ fi
 	
 	#bash "$ScriptPath"/app-installer.sh iterm
 	
-	
+echo "Install Homebrew/Bash"
+
 
 
 # Revoke sudo privileges
@@ -1418,7 +1438,7 @@ fi
     dsimport ~/Desktop/userphoto.txt /Local/Default M -u steve
     rm ~/Desktop/userphoto.txt
 
-
+echo "Updated user photo"
 
 
 # Kill affected applications
@@ -1480,13 +1500,10 @@ fi
 
 
 # Some settings are only effective after the machine is restarted, so restart. Displays normal macOS restart dialog.
-osascript > /dev/null 2>&1 <<EOD
-tell application "System Events"
-	tell process "Finder"
-		tell menu bar 1
-			click menu "Apple"
-			tell menu "Apple" to click menu item "Restart…"
-		end tell
-	end tell
-end tell
-EOD
+read -p "Restart (Y/n)? " RESTART
+
+if [[ $RESTART =~ "Y" ]]; then
+	osascript -e 'tell app "loginwindow" to «event aevtrrst»'
+else
+	echo "Restart cancelled."
+fi
