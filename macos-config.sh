@@ -1363,7 +1363,7 @@ echo "Configured Finder Icon View Settings"
 			defaults write com.apple.TextInputMenu visible -bool true
 		
 			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist	
-			defaults write com.apple.TextInputMenuAgent NSStatusItem Visible Item-0 -bool true
+			defaults write com.apple.TextInputMenuAgent NSStatusItem\ Visible\ Item-0 -bool true
         
     elif [ "$ModelName" == "macbook" ]; then
         bash "$ScriptPath"/menu-extras-add.sh airport
@@ -1386,7 +1386,7 @@ echo "Configured Finder Icon View Settings"
 			defaults write com.apple.TextInputMenu visible -bool true
 		
 			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist	
-			defaults write com.apple.TextInputMenuAgent NSStatusItem Visible Item-0 -bool true
+			defaults write com.apple.TextInputMenuAgent NSStatusItem\ Visible\ Item-0 -bool true
         
     fi
     
