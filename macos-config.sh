@@ -1346,20 +1346,42 @@ echo "Configured Finder Icon View Settings"
         bash "$ScriptPath"/menu-extras-add.sh appleuser
         bash "$ScriptPath"/menu-extras-add.sh bluetooth
         bash "$ScriptPath"/menu-extras-add.sh clock
-        bash "$ScriptPath"/menu-extras-add.sh scriptmenu
-        bash "$ScriptPath"/menu-extras-add.sh textinput
+        #bash "$ScriptPath"/menu-extras-add.sh scriptmenu
+        #bash "$ScriptPath"/menu-extras-add.sh textinput
         bash "$ScriptPath"/menu-extras-add.sh TimeMachine
         bash "$ScriptPath"/menu-extras-add.sh volume
         bash "$ScriptPath"/menu-extras-add.sh vpn
+        
+        # Script Editor Menu
+			[ -f ${HOME}/Library/Preferences/com.apple.scriptmenu.plist ] && rm ${HOME}/Library/Preferences/com.apple.scriptmenu.plist 
+			defaults write com.apple.scriptmenu ScriptMenuEnabled -bool true
+			defaults write com.apple.scriptmenu ShowLibraryScripts -bool true
+			defaults write com.apple.scriptmenu PutAppScriptsFirst -bool true
+        
+        # Text Input Menu
+			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist
+			defaults write com.apple.TextInputMenu visible -bool true
+		
+			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist	
+			defaults write com.apple.TextInputMenuAgent NSStatusItem Visible Item-0 -bool true
+        
     elif [ "$ModelName" == "macbook" ]; then
         bash "$ScriptPath"/menu-extras-add.sh airport
         bash "$ScriptPath"/menu-extras-add.sh appleuser
         bash "$ScriptPath"/menu-extras-add.sh battery
         bash "$ScriptPath"/menu-extras-add.sh bluetooth
         bash "$ScriptPath"/menu-extras-add.sh clock
-        bash "$ScriptPath"/menu-extras-add.sh textinput
+        #bash "$ScriptPath"/menu-extras-add.sh textinput
         bash "$ScriptPath"/menu-extras-add.sh TimeMachine
         bash "$ScriptPath"/menu-extras-add.sh volume
+        
+        # Text Input Menu
+			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist
+			defaults write com.apple.TextInputMenu visible -bool true
+		
+			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist	
+			defaults write com.apple.TextInputMenuAgent NSStatusItem Visible Item-0 -bool true
+        
     fi
     
 echo "Configured Menu Bar Extras"
@@ -1411,12 +1433,12 @@ echo "Configured Dock Folders"
 	
 	# Bash
 	#brew install bash
-	echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
+	echo "/usr/local/bin/bash" | sudo tee -a /etc/shells  > /dev/null 2>&1
 	sudo chsh -s /usr/local/bin/bash steve
 	
 	#bash "$ScriptPath"/app-installer.sh iterm
 	
-echo "Install Homebrew/Bash"
+echo "Installed Homebrew/Bash"
 
 
 

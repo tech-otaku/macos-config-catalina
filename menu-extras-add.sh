@@ -65,13 +65,6 @@ case "$1" in
     clock)
         menu=Clock
         ;;
-    scriptmenu)
-        domain=com.apple.$1
-        menu=Script\ Menu
-        ;;
-	textinput)
-        menu=TextInput
-        ;;
     TimeMachine)
         menu=TimeMachine
         ;;
