@@ -1393,7 +1393,7 @@ fi
 	# Bash
 	#brew install bash
 	echo "/usr/local/bin/bash" | sudo tee /etc/shells
-	chsh -s /usr/local/bin/bash steve
+	sudo chsh -s /usr/local/bin/bash steve
 	
 	#bash "$ScriptPath"/app-installer.sh iterm
 	
