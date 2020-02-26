@@ -986,11 +986,11 @@ fi
 
 # Finder > View > Show|Hide Tab Bar
 	# Show
-	#NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow -bool true	# Spelling mistake 'Shoud' instead of 'Should' courtesy of Apple!
+	#defaults write com.apple.finder 	NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow -bool true	# Spelling mistake 'Shoud' instead of 'Should' courtesy of Apple!
 	#defaults write com.apple.finder ShowTabView -bool true			# Prior to  macOS Catalina 
 	
 	# Hide
-	NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow -bool false	# Spelling mistake 'Shoud' instead of 'Should' courtesy of Apple!
+	defaults write com.apple.finder NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow -bool false	# Spelling mistake 'Shoud' instead of 'Should' courtesy of Apple!
 	#defaults write com.apple.finder ShowTabView -bool false		# Prior to  macOS Catalina
 
 
@@ -1388,11 +1388,11 @@ fi
 # #
 
 	# Homebrew
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	
 	# Bash
-	brew install bash
-	echo "/usr/local/bin/bash" >> /etc/shells
+	#brew install bash
+	echo "/usr/local/bin/bash" | tee /etc/shells
 	chsh -s /usr/local/bin/bash steve
 	
 	#bash "$ScriptPath"/app-installer.sh iterm
