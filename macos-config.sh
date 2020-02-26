@@ -1395,6 +1395,9 @@ fi
 	echo "/usr/local/bin/bash" >> /etc/shells
 	chsh -s /usr/local/bin/bash steve
 	
+	#bash "$ScriptPath"/app-installer.sh iterm
+	
+	
 
 
 # Revoke sudo privileges
