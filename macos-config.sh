@@ -1383,7 +1383,18 @@ fi
     defaults write com.apple.dock persistent-others -array-add '<dict><key>tile-data</key><dict><key>list-type</key><integer>2</integer><key>preferreditemsize</key><integer>-1</integer><key>viewas</key><integer>2</integer></dict><key>tile-type</key><string>recents-tile</string></dict>'
 
 
+# # # # # # # # # # # # # # # # # # # # # # # # # #
+# # INSTALL HOMEBREW
+# #
 
+	# Homebrew
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	
+	# Bash
+	brew install bash
+	echo "/usr/local/bin/bash" >> /etc/shells
+	chsh -s /usr/local/bin/bash steve
+	
 
 
 # Revoke sudo privileges
