@@ -1417,29 +1417,62 @@ echo "Configured Menu Bar Extras"
 
 
 # Add Downloads folder [back] to Dock and display in grid view
-    defaults write com.apple.dock persistent-others -array-add '<dict><key>GUID</key><integer>3485233380</integer><key>tile-data</key><dict><key>arrangement</key><integer>2</integer><key>book</key><data>Ym9vazADAAAAAAQQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALAIAAAUAAAABAQAAVXNlcnMAAAAFAAAAAQEAAHN0ZXZlAAAACQAAAAEBAABEb3dubG9hZHMAAAAMAAAAAQYAAAQAAAAUAAAAJAAAAAgAAAAEAwAAqxsGAAAAAAAIAAAABAMAAAmPBgAAAAAACAAAAAQDAABCxw0AAAAAAAwAAAABBgAATAAAAFwAAABsAAAACAAAAAAEAABBvMrETAAAABgAAAABAgAAAgAAAAAAAAAPAAAAAAAAAAAAAAAAAAAACAAAAAQDAAABAAAAAAAAAAQAAAADAwAA9QEAAAgAAAABCQAAZmlsZTovLy8MAAAAAQEAAE1hY2ludG9zaCBIRAgAAAAEAwAAAAAcru0AAAAIAAAAAAQAAEG/iMbSAAAAJAAAAAEBAABCOUU2M0Y4MC0yNTUzLTNGMzctOTkzMy00MDJBNUUzMkZGNUQYAAAAAQIAAIEAAAABAAAA7xMAAAEAAAAAAAAAAAAAAAEAAAABAQAALwAAAAAAAAABBQAAoQAAAAECAAAyYjlmYzI4ZWM2NjU1NWVhN2YyNGRmMDQ4ODJkMDJmOGExYThhOWNiOzAwMDAwMDAwOzAwMDAwMDAwOzAwMDAwMDAwMDAwMDAwMjA7Y29tLmFwcGxlLmFwcC1zYW5kYm94LnJlYWQtd3JpdGU7MDE7MDEwMDAwMDg7MDAwMDAwMDAwMDBkYzc0MjsvdXNlcnMvc3RldmUvZG93bmxvYWRzAAAAAMwAAAD+////AQAAAAAAAAAQAAAABBAAADgAAAAAAAAABRAAAHwAAAAAAAAAEBAAAKAAAAAAAAAAQBAAAJAAAAAAAAAAAiAAAGwBAAAAAAAABSAAANwAAAAAAAAAECAAAOwAAAAAAAAAESAAACABAAAAAAAAEiAAAAABAAAAAAAAEyAAABABAAAAAAAAICAAAEwBAAAAAAAAMCAAAHgBAAAAAAAAAcAAAMAAAAAAAAAAEcAAABQAAAAAAAAAEsAAANAAAAAAAAAAgPAAAIABAAAAAAAA</data><key>displayas</key><integer>1</integer><key>file-data</key><dict><key>_CFURLString</key><string>file:///Users/steve/Downloads/</string><key>_CFURLStringType</key><integer>15</integer></dict><key>file-label</key><string>Downloads</string><key>file-mod-date</key><integer>3587709744</integer><key>file-type</key><integer>2</integer><key>parent-mod-date</key><integer>3587709747</integer><key>preferreditemsize</key><integer>-1</integer><key>showas</key><integer>2</integer></dict><key>tile-type</key><string>directory-tile</string></dict>'
+GUID=$(/usr/bin/uuidgen)
+ARRANGEMENT=1
+DIRECTORY=1
+DISPLAYAS=1
+CFURLSTRING="${HOME}/Downloads"
+CFURLSTRINGTYPE=0
+FILELABEL="Downloads"
+FILETYPE=2
+SHOWAS=2
+TILETYPE="directory-tile"
+defaults write com.apple.dock persistent-others -array-add '<dict><key>GUID</key><string>'$GUID'</string><key>tile-data</key><dict><key>arrangement</key><integer>'$ARRANGEMENT'</integer><key>directory</key><integer>'$DIRECTORY'</integer><key>displayas</key><integer>'$DISPLAYAS'</integer><key>file-data</key><dict><key>_CFURLString</key><string>'$CFURLSTRING'</string><key>_CFURLStringType</key><integer>'$CFURLSTRINGTYPE'</integer></dict><key>file-label</key><string>'$FILELABEL'</string><key>file-type</key><integer>'$FILETYPE'</integer><key>showas</key><integer>'$SHOWAS'</integer></dict><key>tile-type</key><string>'$TILETYPE'</string></dict>';
 
 
 # Add Utilities folder to Dock and display in grid view
-    defaults write com.apple.dock persistent-others -array-add '<dict><key>GUID</key><integer>1129841173</integer><key>tile-data</key><dict><key>arrangement</key><integer>1</integer><key>book</key><data>Ym9va9gCAAAAAAQQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7AEAAAwAAAABAQAAQXBwbGljYXRpb25zCQAAAAEBAABVdGlsaXRpZXMAAAAIAAAAAQYAAAQAAAAYAAAACAAAAAQDAABNAQAAAAAAAAgAAAAEAwAA0JoAAAAAAAAIAAAAAQYAADwAAABMAAAACAAAAAAEAABBv4NcGwAAABgAAAABAgAAAgAAAAAAAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAEFAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNpbnRvc2ggSEQIAAAABAMAAAAAHK7tAAAACAAAAAAEAABBv4jG0gAAACQAAAABAQAAQjlFNjNGODAtMjU1My0zRjM3LTk5MzMtNDAyQTVFMzJGRjVEGAAAAAECAACBAAAAAQAAAO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8AAACiAAAAAQIAADEwZjU2ZThlYzgyZThkMWY1NTE4ZTM3NzZlYmFiMjQzYmUxZjM1ODA7MDAwMDAwMDA7MDAwMDAwMDA7MDAwMDAwMDAwMDAwMDAyMDtjb20uYXBwbGUuYXBwLXNhbmRib3gucmVhZC13cml0ZTswMTswMTAwMDAwODswMDAwMDAwMDAwMDA5YWQwOy9hcHBsaWNhdGlvbnMvdXRpbGl0aWVzAAAAtAAAAP7///8BAAAAAAAAAA4AAAAEEAAALAAAAAAAAAAFEAAAXAAAAAAAAAAQEAAAfAAAAAAAAABAEAAAbAAAAAAAAAACIAAANAEAAAAAAAAFIAAApAAAAAAAAAAQIAAAtAAAAAAAAAARIAAA6AAAAAAAAAASIAAAyAAAAAAAAAATIAAA2AAAAAAAAAAgIAAAFAEAAAAAAAAwIAAAnAAAAAAAAAAB0AAAnAAAAAAAAACA8AAAQAEAAAAAAAA=</data><key>displayas</key><integer>1</integer><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Utilities/</string><key>_CFURLStringType</key><integer>15</integer></dict><key>file-label</key><string>Utilities</string><key>file-mod-date</key><integer>3587710135</integer><key>file-type</key><integer>2</integer><key>parent-mod-date</key><integer>3587714112</integer><key>preferreditemsize</key><integer>-1</integer><key>showas</key><integer>2</integer></dict><key>tile-type</key><string>directory-tile</string></dict>'
+GUID=$(/usr/bin/uuidgen)
+ARRANGEMENT=1
+DIRECTORY=1
+DISPLAYAS=1
+CFURLSTRING="/Applications/Utilities"
+CFURLSTRINGTYPE=0
+FILELABEL="Utilities"
+FILETYPE=2
+SHOWAS=2
+TILETYPE="directory-tile"
+defaults write com.apple.dock persistent-others -array-add '<dict><key>GUID</key><string>'$GUID'</string><key>tile-data</key><dict><key>arrangement</key><integer>'$ARRANGEMENT'</integer><key>directory</key><integer>'$DIRECTORY'</integer><key>displayas</key><integer>'$DISPLAYAS'</integer><key>file-data</key><dict><key>_CFURLString</key><string>'$CFURLSTRING'</string><key>_CFURLStringType</key><integer>'$CFURLSTRINGTYPE'</integer></dict><key>file-label</key><string>'$FILELABEL'</string><key>file-type</key><integer>'$FILETYPE'</integer><key>showas</key><integer>'$SHOWAS'</integer></dict><key>tile-type</key><string>'$TILETYPE'</string></dict>'
+
 
 
 # Add Applications folder to Dock and display in grid view
-    defaults write com.apple.dock persistent-others -array-add '<dict><key>GUID</key><integer>1631236773</integer><key>tile-data</key><dict><key>arrangement</key><integer>1</integer><key>book</key><data>Ym9va6ACAAAAAAQQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtAEAAAwAAAABAQAAQXBwbGljYXRpb25zBAAAAAEGAAAEAAAACAAAAAQDAABNAQAAAAAAAAQAAAABBgAAJAAAAAgAAAAABAAAQb+DXDEAAAAYAAAAAQIAAAIAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAABBQAACAAAAAEJAABmaWxlOi8vLwwAAAABAQAATWFjaW50b3NoIEhECAAAAAQDAAAAAByu7QAAAAgAAAAABAAAQb+IxtIAAAAkAAAAAQEAAEI5RTYzRjgwLTI1NTMtM0YzNy05OTMzLTQwMkE1RTMyRkY1RBgAAAABAgAAgQAAAAEAAADvEwAAAQAAAAAAAAAAAAAAAQAAAAEBAAAvAAAAmAAAAAECAAA1YTA1MjIzYzA5YzEzNTg1ZWI5YTU2Y2QyZGM3NDI1YzVjYzkwN2ExOzAwMDAwMDAwOzAwMDAwMDAwOzAwMDAwMDAwMDAwMDAwMjA7Y29tLmFwcGxlLmFwcC1zYW5kYm94LnJlYWQtd3JpdGU7MDE7MDEwMDAwMDg7MDAwMDAwMDAwMDAwMDE0ZDsvYXBwbGljYXRpb25zALQAAAD+////AQAAAAAAAAAOAAAABBAAABgAAAAAAAAABRAAADQAAAAAAAAAEBAAAFAAAAAAAAAAQBAAAEAAAAAAAAAAAiAAAAgBAAAAAAAABSAAAHgAAAAAAAAAECAAAIgAAAAAAAAAESAAALwAAAAAAAAAEiAAAJwAAAAAAAAAEyAAAKwAAAAAAAAAICAAAOgAAAAAAAAAMCAAAHAAAAAAAAAAAdAAAHAAAAAAAAAAgPAAABQBAAAAAAAA</data><key>displayas</key><integer>1</integer><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/</string><key>_CFURLStringType</key><integer>15</integer></dict><key>file-label</key><string>Applications</string><key>file-mod-date</key><integer>3589443377</integer><key>file-type</key><integer>2</integer><key>parent-mod-date</key><integer>3589376025</integer><key>preferreditemsize</key><integer>-1</integer><key>showas</key><integer>0</integer></dict><key>tile-type</key><string>directory-tile</string></dict>'
+GUID=$(/usr/bin/uuidgen)
+ARRANGEMENT=1
+DIRECTORY=1
+DISPLAYAS=1
+CFURLSTRING="/Applications"
+CFURLSTRINGTYPE=0
+FILELABEL="Applications"
+FILETYPE=2
+SHOWAS=2
+TILETYPE="directory-tile"
+defaults write com.apple.dock persistent-others -array-add '<dict><key>GUID</key><string>'$GUID'</string><key>tile-data</key><dict><key>arrangement</key><integer>'$ARRANGEMENT'</integer><key>directory</key><integer>'$DIRECTORY'</integer><key>displayas</key><integer>'$DISPLAYAS'</integer><key>file-data</key><dict><key>_CFURLString</key><string>'$CFURLSTRING'</string><key>_CFURLStringType</key><integer>'$CFURLSTRINGTYPE'</integer></dict><key>file-label</key><string>'$FILELABEL'</string><key>file-type</key><integer>'$FILETYPE'</integer><key>showas</key><integer>'$SHOWAS'</integer></dict><key>tile-type</key><string>'$TILETYPE'</string></dict>'
 
+
+# NOTE: Recent Folders no longer appear to work in Catalina
 
 # Add Recent Applications to Dock and display in grid view
 # Recent Applications = <key>list-type</key><integer>1</integer>
 # Icon size = <key>preferreditemsize</key><integer>-1</integer>
 # View content as Grid = <key>viewas</key><integer>2</integer>
-    defaults write com.apple.dock persistent-others -array-add '<dict><key>tile-data</key><dict><key>list-type</key><integer>1</integer><key>preferreditemsize</key><integer>-1</integer><key>viewas</key><integer>2</integer></dict><key>tile-type</key><string>recents-tile</string></dict>'
+    #defaults write com.apple.dock persistent-others -array-add '<dict><key>tile-data</key><dict><key>list-type</key><integer>1</integer><key>preferreditemsize</key><integer>-1</integer><key>viewas</key><integer>2</integer></dict><key>tile-type</key><string>recents-tile</string></dict>'
 
 
 # Add Recent Documents to Dock and display in grid view
 # Recent Documents = <key>list-type</key><integer>2</integer>
 # Icon size = <key>preferreditemsize</key><integer>-1</integer>
 # View content as Grid = <key>viewas</key><integer>2</integer>
-    defaults write com.apple.dock persistent-others -array-add '<dict><key>tile-data</key><dict><key>list-type</key><integer>2</integer><key>preferreditemsize</key><integer>-1</integer><key>viewas</key><integer>2</integer></dict><key>tile-type</key><string>recents-tile</string></dict>'
+    #defaults write com.apple.dock persistent-others -array-add '<dict><key>tile-data</key><dict><key>list-type</key><integer>2</integer><key>preferreditemsize</key><integer>-1</integer><key>viewas</key><integer>2</integer></dict><key>tile-type</key><string>recents-tile</string></dict>'
     
 echo "Configured Dock Folders"
 
