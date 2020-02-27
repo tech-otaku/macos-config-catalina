@@ -79,6 +79,7 @@ EOD
 
 # Absolute path to this script, i.e. /home/user/bin
     ScriptPath=$(dirname "$0")
+    cd "$ScriptPath"
 
 
 # Some settings are dependant on the computer model. ModelName is used to decide which settings are appropriate.
@@ -248,12 +249,12 @@ echo "...General"
 
 	# The Desktop picture is set using 'set-desktop-catalina.sh'. See https://github.com/tech-otaku/macos-desktop/blob/master/README.md
 	if [ ! -f /Users/steve/macos-config-catalina-master/set-desktop-catalina.sh ]; then
-		curl -o "${ScriptPath}/set-desktop-catalina.sh" -L https://raw.githubusercontent.com/tech-otaku/macos-desktop/master/set-desktop-catalina.sh
+		curl -o set-desktop-catalina.sh -L https://raw.githubusercontent.com/tech-otaku/macos-desktop/master/set-desktop-catalina.sh
 	fi
 	
-	chmod +x "$ScriptPath/set-desktop-catalina.sh"
+	chmod +x set-desktop-catalina.sh
 	
-	"$ScriptPath/set-desktop-catalina.sh $DESKTOP"
+	./set-desktop-catalina.sh $DESKTOP
 	
 
 # System Preferences > Desktop & Screen Saver > Screen Saver > Start after
