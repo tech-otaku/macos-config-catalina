@@ -9,7 +9,6 @@ IMAGEFILE="$HOME/macos-config-catalina-master/Photos/steve-bw.jpg"
 DESKTOP="mojave-dark"
 
 
-
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # ENVIRONMENT SETUP
 # #
@@ -78,7 +77,8 @@ EOD
     osascript -e 'tell application "System Preferences" to quit'  > /dev/null 2>&1
 
 
-
+# Absolute path to this script, i.e. /home/user/bin
+    ScriptPath=$(dirname "$0")
 
 
 # Some settings are dependant on the computer model. ModelName is used to decide which settings are appropriate.
