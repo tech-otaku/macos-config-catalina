@@ -201,7 +201,7 @@ EOD
 
 
 # System Preferences > General > Default web browser
-    # GUI Scripting: /Users/steve/developer/Github/macos-config-mojave/sys-prefs.scpt
+    # GUI Scripting: /Users/steve/macos-config-catalina-master/Scripts/Config All.scpt
 
 
 # System Preferences > General > Ask to keep changes when closing documents
@@ -221,15 +221,15 @@ EOD
 
 
 # System Preferences > General > Recent items
-    # GUI Scripting: /Users/steve/developer/Github/macos-config-mojave/sys-prefs.scpt
+    # GUI Scripting: /Users/steve/macos-config-catalina-master/Scripts/Config All.scpt
 
 
 # System Preferences > General > Allow Handoff between this Mac and your iCloud devices
-    # GUI Scripting: /Users/steve/developer/Github/macos-config-mojave/sys-prefs.scpt
+    # GUI Scripting: /Users/steve/macos-config-catalina-master/Scripts/Config All.scpt
 
 
 # System Preferences > General > Use font smoothing when available
-    # GUI Scripting: /Users/steve/developer/Github/macos-config-mojave/sys-prefs.scpt
+    # GUI Scripting: /Users/steve/macos-config-catalina-master/Scripts/Config All.scpt
 
 echo "Configured System Preferences..."
 echo "...General"
@@ -1348,57 +1348,60 @@ echo "Configured Finder Icon View Settings"
 
 # These menu extras should appear in the menubar. Add them to the current items if they don't yet exist.
     if [ "$ModelName" == "imac" ]; then
-            
-        # Bluetooth
-        	open /System/Library/CoreServices/Menu\ Extras/Bluetooth.menu
-        
-        # Clock
-        	open /System/Library/CoreServices/Menu\ Extras/Clock.menu
-        
-        # Script Editor 
-        	open /System/Library/CoreServices/Script\ Menu.app 
+    
+        # System Preferences > Bluetooth > Show Bluetooth in menu bar [checked]
+        	open /System/Library/CoreServices/Menu\ Extras/Bluetooth.menu								# Comment-out for unchecked
         	
-        # Text Input
-			defaults write com.apple.TextInputMenu visible -bool true
-			defaults write com.apple.TextInputMenuAgent NSStatusItem\ Visible\ Item-0 -bool true
-       
-        # Time Machine        
-        	open /System/Library/CoreServices/Menu\ Extras/TimeMachine.menu
-        
-        # Volume
-        	open /System/Library/CoreServices/Menu\ Extras/Volume.menu
-
-		# VPN        
-			open /System/Library/CoreServices/Menu\ Extras/VPN.menu
+        # System Preferences > Date & Time > Clock > Show date and time in menu bar [checked]
+        	open /System/Library/CoreServices/Menu\ Extras/Clock.menu									# Comment-out for unchecked
+        	
+        # System Preferences > Keyboard > Input Sources > Show Input menu in menu bar [checked]
+			defaults write com.apple.TextInputMenu visible -bool true									# Comment-out for unchecked
+			defaults write com.apple.TextInputMenuAgent NSStatusItem\ Visible\ Item-0 -bool true		# Comment-out for unchecked
 			
-		# Wi-Fi
-    		open /System/Library/CoreServices/Menu\ Extras/AirPort.menu
+		# System Preferences > Network > Show Wi-Fi status in menu bar [checked]
+    		open /System/Library/CoreServices/Menu\ Extras/AirPort.menu									# Comment-out for unchecked
 
+  		# System Preferences > Network > Show VPN status in menu bar [checked]         
+			open /System/Library/CoreServices/Menu\ Extras/VPN.menu										# Comment-out for unchecked
+			
+        # System Preferences > Time Machine > Show Time Machine in menu bar [checked]        
+        	open /System/Library/CoreServices/Menu\ Extras/TimeMachine.menu								# Comment-out for unchecked
         
+        # System Preferences > Volume > Show volume in menu bar [checked] 
+        	open /System/Library/CoreServices/Menu\ Extras/Volume.menu									# Comment-out for unchecked
+        
+        # Script Editor > Preferences > General > Script Menu: Show Script menu in menu bar
+        	open /System/Library/CoreServices/Script\ Menu.app											# Comment-out for unchecked 
+        	
         
     elif [ "$ModelName" == "macbook" ]; then
-        bash "$ScriptPath"/menu-extras-add.sh airport
-        bash "$ScriptPath"/menu-extras-add.sh appleuser
-        bash "$ScriptPath"/menu-extras-add.sh battery
-        bash "$ScriptPath"/menu-extras-add.sh bluetooth
-        bash "$ScriptPath"/menu-extras-add.sh clock
-        #bash "$ScriptPath"/menu-extras-add.sh textinput
-        bash "$ScriptPath"/menu-extras-add.sh TimeMachine
-        bash "$ScriptPath"/menu-extras-add.sh volume
-        
-        # Script Editor Menu
-			[ -f ${HOME}/Library/Preferences/com.apple.scriptmenu.plist ] && rm ${HOME}/Library/Preferences/com.apple.scriptmenu.plist 
-			defaults write com.apple.scriptmenu ScriptMenuEnabled -bool true
-			defaults write com.apple.scriptmenu ShowLibraryScripts -bool true
-			defaults write com.apple.scriptmenu PutAppScriptsFirst -bool true
-        
-        # Text Input Menu
-			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenu.plist
-			defaults write com.apple.TextInputMenu visible -bool true
+    
+        # System Preferences > Bluetooth > Show Bluetooth in menu bar [checked]
+        	open /System/Library/CoreServices/Menu\ Extras/Bluetooth.menu								# Comment-out for unchecked
+        	
+        # System Preferences > Date & Time > Clock > Show date and time in menu bar [checked]
+        	open /System/Library/CoreServices/Menu\ Extras/Clock.menu									# Comment-out for unchecked
+        	
+        # System Preferences > Energy Saver > Clock > Show battery status in menu bar [checked]
+        	open /System/Library/CoreServices/Menu\ Extras/Battery.menu									# Comment-out for unchecked
+        	
+        # System Preferences > Keyboard > Input Sources > Show Input menu in menu bar [checked]
+			defaults write com.apple.TextInputMenu visible -bool true									# Comment-out for unchecked
+			defaults write com.apple.TextInputMenuAgent NSStatusItem\ Visible\ Item-0 -bool true		# Comment-out for unchecked
+			
+		# System Preferences > Network > Show Wi-Fi status in menu bar [checked]
+    		open /System/Library/CoreServices/Menu\ Extras/AirPort.menu									# Comment-out for unchecked
+
+  		# System Preferences > Network > Show VPN status in menu bar [checked]         
+			open /System/Library/CoreServices/Menu\ Extras/VPN.menu										# Comment-out for unchecked
 		
-			[ -f ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist ] && rm ${HOME}/Library/Preferences/com.apple.TextInputMenuAgent.plist	
-			defaults write com.apple.TextInputMenuAgent NSStatusItem\ Visible\ Item-0 -bool true
+        # System Preferences > Time Machine > Show Time Machine in menu bar [checked]        
+        	open /System/Library/CoreServices/Menu\ Extras/TimeMachine.menu								# Comment-out for unchecked
         
+        # System Preferences > Volume > Show volume in menu bar [checked] 
+        	open /System/Library/CoreServices/Menu\ Extras/Volume.menu									# Comment-out for unchecked
+                
     fi
     
 echo "Configured Menu Bar Extras"
@@ -1469,13 +1472,15 @@ echo "Installed Homebrew/Bash"
 # # USER photo
 # #
 
-# Change the user's (steve) photo
+# Change the current user's ($USER) photo
     # Source: https://www.jamf.com/jamf-nation/discussions/4332/how-to-change-local-user-account-#picture-through-command-terminal & https://discussions.apple.com/thread/7596877
-    echo "0x0A 0x5C 0x3A 0x2C dsRecTypeStandard:Users 5 dsAttrTypeStandard:RecordName dsAttrTypeStandard:UniqueID dsAttrTypeStandard:PrimaryGroupID dsAttrTypeStandard:GeneratedUID externalbinary:dsAttrTypeStandard:JPEGPhoto" > ~/Desktop/userphoto.txt
-    echo $USER:$UID:$(id -g):$(dscl . -read /Users/$USER GeneratedUID | cut -d' ' -f2):"$ScriptPath"/Photos/steve-colour.jpg >> ~/Desktop/userphoto.txt
+    TEMPFILE=$(mktemp)
+    IMAGEFILE="$ScriptPath/Photos/steve-colour.jpg"
+    echo "0x0A 0x5C 0x3A 0x2C dsRecTypeStandard:Users 5 dsAttrTypeStandard:RecordName dsAttrTypeStandard:UniqueID dsAttrTypeStandard:PrimaryGroupID dsAttrTypeStandard:GeneratedUID externalbinary:dsAttrTypeStandard:JPEGPhoto" > ${TEMPFILE}
+    echo ${USER}:${UID}:$(id -g):$(dscl . -read /Users/${USER} GeneratedUID | cut -d' ' -f2):${PHOTOPATH} >> ${TEMPFILE}
     dscl . -delete /Users/$USER JPEGPhoto
-    dsimport ~/Desktop/userphoto.txt /Local/Default M -u steve
-    rm ~/Desktop/userphoto.txt
+    dsimport ${TEMPFILE} /Local/Default M -u $USER
+    rm ${TEMPFILE}
 
 echo "Updated user photo"
 
