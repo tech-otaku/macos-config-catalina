@@ -79,7 +79,7 @@ EOD
 
 # Absolute path to this script, i.e. /Users/steve/macos-config-catalina-master
     ScriptPath=$(dirname "$0")
-    cd "$ScriptPath"
+    #cd "$ScriptPath"
 
 
 # Some settings are dependant on the computer model. ModelName is used to decide which settings are appropriate.
@@ -1376,7 +1376,9 @@ echo "Configured Finder Icon View Settings"
         	
         # System Preferences > Keyboard > Input Sources > Show Input menu in menu bar [checked]
 			defaults write com.apple.TextInputMenu visible -bool true									# Comment-out for unchecked
-			defaults write com.apple.TextInputMenuAgent NSStatusItem\ Visible\ Item-0 -bool true		# Comment-out for unchecked
+			
+		# System Preferences > Keyboard > Keyboard > Show keyboard and emoji viewers in menu bar [checked]
+			#ShowKeyboardEmojiViewer																	# Comment-out for unchecked
 			
 		# System Preferences > Network > Show Wi-Fi status in menu bar [checked]
     		open /System/Library/CoreServices/Menu\ Extras/AirPort.menu									# Comment-out for unchecked
@@ -1411,7 +1413,7 @@ echo "Configured Finder Icon View Settings"
 			defaults write com.apple.TextInputMenu visible -bool true									# Comment-out for unchecked
 			
 		# System Preferences > Keyboard > Keyboard > Show keyboard and emoji viewers in menu bar [checked]
-			ShowKeyboardEmojiViewer																		# Comment-out for unchecked
+			#ShowKeyboardEmojiViewer																	# Comment-out for unchecked
 
 		# System Preferences > Network > Show Wi-Fi status in menu bar [checked]
     		open /System/Library/CoreServices/Menu\ Extras/AirPort.menu									# Comment-out for unchecked
@@ -1600,10 +1602,4 @@ fi
 
 
 # Some settings are only effective after the machine is restarted, so restart. Displays normal macOS restart dialog.
-read -p "Restart (Y/n)? " RESTART
-
-if [[ $RESTART =~ "Y" ]]; then
 	osascript -e 'tell app "loginwindow" to «event aevtrrst»'
-else
-	echo "Restart cancelled."
-fi
