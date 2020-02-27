@@ -5,8 +5,8 @@
 
 # macOS Catalina 10.15
 
-IMAGEFILE="$HOME/macos-config-catalina-master/Photos/steve-bw.jpg"
-DESKTOP="mojave-dark"
+IMAGEFILE="$HOME/macos-config-catalina-master/Photos/steve-colour.jpg"
+DESKTOP="catalina"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -77,7 +77,7 @@ EOD
     osascript -e 'tell application "System Preferences" to quit'  > /dev/null 2>&1
 
 
-# Absolute path to this script, i.e. /home/user/bin
+# Absolute path to this script, i.e. /Users/steve/macos-config-catalina-master
     ScriptPath=$(dirname "$0")
     cd "$ScriptPath"
 
@@ -249,12 +249,12 @@ echo "...General"
 
 	# The Desktop picture is set using 'set-desktop-catalina.sh'. See https://github.com/tech-otaku/macos-desktop/blob/master/README.md
 	if [ ! -f /Users/steve/macos-config-catalina-master/set-desktop-catalina.sh ]; then
-		curl -o set-desktop-catalina.sh -L https://raw.githubusercontent.com/tech-otaku/macos-desktop/master/set-desktop-catalina.sh
+		curl -o "$ScriptPath/set-desktop-catalina.sh" -L https://raw.githubusercontent.com/tech-otaku/macos-desktop/master/set-desktop-catalina.sh
 	fi
 	
-	chmod +x set-desktop-catalina.sh
+	chmod +x "$ScriptPath/set-desktop-catalina.sh"
 	
-	./set-desktop-catalina.sh $DESKTOP
+	"$ScriptPath/set-desktop-catalina.sh" $DESKTOP
 	
 
 # System Preferences > Desktop & Screen Saver > Screen Saver > Start after
