@@ -5,6 +5,10 @@
 
 # macOS Catalina 10.15
 
+IMAGEFILE="$HOME/macos-config-catalina-master/Photos/steve-bw.jpg"
+DESKTOP="mojave-dark"
+
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # ENVIRONMENT SETUP
@@ -74,8 +78,7 @@ EOD
     osascript -e 'tell application "System Preferences" to quit'  > /dev/null 2>&1
 
 
-# Absolute path to this script, i.e. /home/user/bin
-    ScriptPath=$(dirname "$0")
+
 
 
 # Some settings are dependant on the computer model. ModelName is used to decide which settings are appropriate.
@@ -250,7 +253,7 @@ echo "...General"
 	
 	chmod +x "$ScriptPath/set-desktop-catalina.sh"
 	
-	"$ScriptPath/set-desktop-catalina.sh catalina"
+	"$ScriptPath/set-desktop-catalina.sh $DESKTOP"
 	
 
 # System Preferences > Desktop & Screen Saver > Screen Saver > Start after
@@ -1508,9 +1511,9 @@ echo "Installed Homebrew/Bash"
 # Change the current user's ($USER) photo
     # Source: https://www.jamf.com/jamf-nation/discussions/4332/how-to-change-local-user-account-#picture-through-command-terminal & https://discussions.apple.com/thread/7596877
     TEMPFILE=$(mktemp)
-    IMAGEFILE="$ScriptPath/Photos/steve-colour.jpg"
+    #IMAGEFILE="$ScriptPath/Photos/steve-colour.jpg"
     echo "0x0A 0x5C 0x3A 0x2C dsRecTypeStandard:Users 5 dsAttrTypeStandard:RecordName dsAttrTypeStandard:UniqueID dsAttrTypeStandard:PrimaryGroupID dsAttrTypeStandard:GeneratedUID externalbinary:dsAttrTypeStandard:JPEGPhoto" > ${TEMPFILE}
-    echo ${USER}:${UID}:$(id -g):$(dscl . -read /Users/${USER} GeneratedUID | cut -d' ' -f2):${PHOTOPATH} >> ${TEMPFILE}
+    echo ${USER}:${UID}:$(id -g):$(dscl . -read /Users/${USER} GeneratedUID | cut -d' ' -f2):${IMAGEFILE} >> ${TEMPFILE}
     dscl . -delete /Users/$USER JPEGPhoto
     dsimport ${TEMPFILE} /Local/Default M -u $USER
     rm ${TEMPFILE}
