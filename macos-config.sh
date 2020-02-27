@@ -1381,18 +1381,29 @@ echo "Configured Finder Icon View Settings"
         
     elif [ "$ModelName" == "macbook" ]; then
     
+    	# Wi-Fi, Battery, Clock, Spotlight and Notifications are visible by default.  
+    
         # System Preferences > Bluetooth > Show Bluetooth in menu bar [checked]
         	open /System/Library/CoreServices/Menu\ Extras/Bluetooth.menu								# Comment-out for unchecked
         	
         # System Preferences > Date & Time > Clock > Show date and time in menu bar [checked]
         	open /System/Library/CoreServices/Menu\ Extras/Clock.menu									# Comment-out for unchecked
         	
-        # System Preferences > Energy Saver > Clock > Show battery status in menu bar [checked]
+        # System Preferences > Energy Saver > Show battery status in menu bar [checked]
         	open /System/Library/CoreServices/Menu\ Extras/Battery.menu									# Comment-out for unchecked
         	
         # System Preferences > Keyboard > Input Sources > Show Input menu in menu bar [checked]
+        	# com.apple.HIToolbox.plist, com.apple.TextInputMenu.plist and com.apple.TextInputMenuAgent.plist 
+        	# do not exist on a new macOS install
+        	# The command below creates both com.apple.TextInputMenu.plist AND com.apple.TextInputMenuAgent.plist
+        	# com.apple.TextInputMenuAgent.plist has the following structure:
+        	# <dict>
+        	#	 <key>NSStatusItem Visible Item-0</key>
+        	#	 <true/>
+        	# <dict>
 			defaults write com.apple.TextInputMenu visible -bool true									# Comment-out for unchecked
-			defaults write com.apple.TextInputMenuAgent NSStatusItem\ Visible\ Item-0 -bool true		# Comment-out for unchecked
+			defaults write com.apple.HIToolbox '{AppleEnabledInputSources = ( {"Bundle ID" = com.apple.CharacterPaletteIM; InputSourceKind = "Non Keyboard Input Method";} );}'
+
 			
 		# System Preferences > Network > Show Wi-Fi status in menu bar [checked]
     		open /System/Library/CoreServices/Menu\ Extras/AirPort.menu									# Comment-out for unchecked
