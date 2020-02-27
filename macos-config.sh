@@ -1402,7 +1402,24 @@ echo "Configured Finder Icon View Settings"
         	#	 <true/>
         	# <dict>
 			defaults write com.apple.TextInputMenu visible -bool true									# Comment-out for unchecked
-			defaults write com.apple.HIToolbox '{AppleEnabledInputSources = ( {"Bundle ID" = com.apple.CharacterPaletteIM; InputSourceKind = "Non Keyboard Input Method";} );}'
+			
+			/usr/libexec/PlistBuddy \
+-c "clear dict" \
+-c "add :AppleCurrentKeyboardLayoutInputSourceID string com.apple.keylayout.British" \
+-c "add :AppleEnabledInputSources array" \
+-c "add :AppleEnabledInputSources:0 dict" \
+-c "add :AppleEnabledInputSources:0:InputSourceKind string 'Keyboard Layout'" \
+-c "add :AppleEnabledInputSources:0:'KeyboardLayout ID' integer 2" \
+-c "add :AppleEnabledInputSources:0:'KeyboardLayout Name' string British" \
+-c "add :AppleEnabledInputSources:1 dict" \
+-c "add :AppleEnabledInputSources:1:'Bundle ID' string com.apple.CharacterPaletteIM" \
+-c "add :AppleEnabledInputSources:1:InputSourceKind string 'Non Keyboard Input Method'" \
+-c "add :AppleSelectedInputSources array" \
+-c "add :AppleSelectedInputSources:0 dict" \
+-c "add :AppleSelectedInputSources:0:InputSourceKind string 'Keyboard Layout'" \
+-c "add :AppleSelectedInputSources:0:'KeyboardLayout ID' integer 2" \
+-c "add :AppleSelectedInputSources:0:'KeyboardLayout Name' string British" \
+/Users/steve/Library/Preferences/com.apple.HIToolbox.plist
 
 			
 		# System Preferences > Network > Show Wi-Fi status in menu bar [checked]
