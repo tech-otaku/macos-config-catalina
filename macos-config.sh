@@ -1486,10 +1486,10 @@ echo "Configured Dock Folders"
 # #
 
 	# Homebrew
-	#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	
 	# Bash
-	#brew install bash
+	brew install bash
 	echo "/usr/local/bin/bash" | sudo tee -a /etc/shells  > /dev/null 2>&1
 	sudo chsh -s /usr/local/bin/bash steve
 	
@@ -1577,7 +1577,7 @@ fi
 #/usr/libexec/PlistBuddy /Users/steve/Library/Safari/Bookmarks.plist -c "Add :Children:1:Children:0:WebBookmarkType string WebBookmarkTypeLeaf"
 
 # Execute the AppleScript configuration script
-    #osascript "$ScriptPath"/Scripts/Config\ All.scpt > /dev/null 2>&1
+    osascript "$ScriptPath"/Scripts/Config\ All.scpt > /dev/null 2>&1
 
 
 # Some settings are only effective after the machine is restarted, so restart. Displays normal macOS restart dialog.
