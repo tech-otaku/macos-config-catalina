@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# NSGlobalDomain is synonymous with the .GlobalPreferences
+# NSGlobalDomain is synonymous with .GlobalPreferences
 # '-g' and '-globalDomain' can be used as synonyms for NSGlobalDomain or .GlobalPreferences
 
 # macOS Catalina 10.15
@@ -89,15 +89,15 @@ EOD
 # #
 
 # System Preferences > General > Appearance
-    # Light (For this mode neither "AppleInterfaceStyle" nor "AppleInterfaceStyleSwitchesAutomatically" should exist so delete them both)
+    # Light (For this mode neither "AppleInterfaceStyle" nor "AppleInterfaceStyleSwitchesAutomatically" mustn't exist so delete them both)
     defaults delete -g AppleInterfaceStyle 2> /dev/null     						# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
     defaults delete -g AppleInterfaceStyleSwitchesAutomatically 2> /dev/null		# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
     
-    # Dark  (For this mode "AppleInterfaceStyleSwitchesAutomatically" shouldn't exist so delete it)
+    # Dark  (For this mode "AppleInterfaceStyleSwitchesAutomatically" mustn't exist so delete it)
     #defaults write -g AppleInterfaceStyle -string Dark
     #defaults delete -g AppleInterfaceStyleSwitchesAutomatically 2> /dev/null		# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
     
-    # Automatic  (For this mode "AppleInterfaceStyle" shouldn't exist so delete it)
+    # Automatic  (For this mode "AppleInterfaceStyle" mustn't exist so delete it)
     #defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
     #defaults delete -g AppleInterfaceStyle 2> /dev/null     						# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
 
