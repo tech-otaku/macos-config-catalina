@@ -84,6 +84,21 @@ EOD
 
 # Some settings are dependant on the computer model. ModelName is used to decide which settings are appropriate.
     ModelName=$(system_profiler SPHardwareDataType | awk '/Model Name/ {print tolower($3)}')
+    
+
+	ShowKeyboardEmojiViewer () {
+	
+		# com.apple.HIToolbox.plist, com.apple.TextInputMenu.plist and com.apple.TextInputMenuAgent.plist 
+		# do not exist on a new macOS install
+		# The command below creates both com.apple.TextInputMenu.plist AND com.apple.TextInputMenuAgent.plist
+		# com.apple.TextInputMenuAgent.plist has the following structure:
+		# <dict>
+		#	 <key>NSStatusItem Visible Item-0</key>
+		#	 <true/>
+        	# <dict>
+	
+		/usr/libexec/PlistBuddy -c "clear dict" -c "add :AppleCurrentKeyboardLayoutInputSourceID string com.apple.keylayout.British" -c "add :AppleEnabledInputSources array" -c "add :AppleEnabledInputSources:0 dict" -c "add :AppleEnabledInputSources:0:InputSourceKind string 'Keyboard Layout'" -c "add :AppleEnabledInputSources:0:'KeyboardLayout ID' integer 2" -c "add :AppleEnabledInputSources:0:'KeyboardLayout Name' string British" -c "add :AppleEnabledInputSources:1 dict" -c "add :AppleEnabledInputSources:1:'Bundle ID' string com.apple.CharacterPaletteIM" -c "add :AppleEnabledInputSources:1:InputSourceKind string 'Non Keyboard Input Method'" -c "add :AppleSelectedInputSources array" -c "add :AppleSelectedInputSources:0 dict" -c "add :AppleSelectedInputSources:0:InputSourceKind string 'Keyboard Layout'" -c "add :AppleSelectedInputSources:0:'KeyboardLayout ID' integer 2" -c "add :AppleSelectedInputSources:0:'KeyboardLayout Name' string British" /Users/steve/Library/Preferences/com.apple.HIToolbox.plist	
+	}
 
 
 
@@ -1393,35 +1408,11 @@ echo "Configured Finder Icon View Settings"
         	open /System/Library/CoreServices/Menu\ Extras/Battery.menu									# Comment-out for unchecked
         	
         # System Preferences > Keyboard > Input Sources > Show Input menu in menu bar [checked]
-        	# com.apple.HIToolbox.plist, com.apple.TextInputMenu.plist and com.apple.TextInputMenuAgent.plist 
-        	# do not exist on a new macOS install
-        	# The command below creates both com.apple.TextInputMenu.plist AND com.apple.TextInputMenuAgent.plist
-        	# com.apple.TextInputMenuAgent.plist has the following structure:
-        	# <dict>
-        	#	 <key>NSStatusItem Visible Item-0</key>
-        	#	 <true/>
-        	# <dict>
 			defaults write com.apple.TextInputMenu visible -bool true									# Comment-out for unchecked
 			
-			/usr/libexec/PlistBuddy \
--c "clear dict" \
--c "add :AppleCurrentKeyboardLayoutInputSourceID string com.apple.keylayout.British" \
--c "add :AppleEnabledInputSources array" \
--c "add :AppleEnabledInputSources:0 dict" \
--c "add :AppleEnabledInputSources:0:InputSourceKind string 'Keyboard Layout'" \
--c "add :AppleEnabledInputSources:0:'KeyboardLayout ID' integer 2" \
--c "add :AppleEnabledInputSources:0:'KeyboardLayout Name' string British" \
--c "add :AppleEnabledInputSources:1 dict" \
--c "add :AppleEnabledInputSources:1:'Bundle ID' string com.apple.CharacterPaletteIM" \
--c "add :AppleEnabledInputSources:1:InputSourceKind string 'Non Keyboard Input Method'" \
--c "add :AppleSelectedInputSources array" \
--c "add :AppleSelectedInputSources:0 dict" \
--c "add :AppleSelectedInputSources:0:InputSourceKind string 'Keyboard Layout'" \
--c "add :AppleSelectedInputSources:0:'KeyboardLayout ID' integer 2" \
--c "add :AppleSelectedInputSources:0:'KeyboardLayout Name' string British" \
-/Users/steve/Library/Preferences/com.apple.HIToolbox.plist
+		# System Preferences > Keyboard > Keyboard > Show keyboard and emoji viewers in menu bar [checked]
+			ShowKeyboardEmojiViewer																		# Comment-out for unchecked
 
-			
 		# System Preferences > Network > Show Wi-Fi status in menu bar [checked]
     		open /System/Library/CoreServices/Menu\ Extras/AirPort.menu									# Comment-out for unchecked
 
