@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+	# arrangement			ARRANGEMENT								[1=Name, 2=Date Added, 3=Date Modified, 4=Date Created, 5=Kind]
+	# directory				DIRECTORY
+	# displayas				DISPLAYAS								[0=Stack, 1=Folder]
+	# _CFURLStringType		CFURLSTRINGTYPE							[0 if _CFURLString begins with '/', 15 if _CFURLString begins with file:///]
+	# file-type				FILETYPE								[1 if recent-apps, 2 if persistent-others, 41 if persistent-apps]	
+	# preferreditemsize		PREFERREDITEMSIZE
+	# showas				SHOWAS									[1=Fan, 2=List, 3=Grid, 0=Automatic]
+	# tile-type           	TILETYPE								[directory-tile, file-tile, url-tile, spacer-tile, small-spacer-tile, flex-spacer-tile]
+
 # Delete `persistent-others` key from com.apple.dock.plist. For fresh installs this should only contain data on the Downloads folder and will be added back to the Dock below exactly the same except `showas` is changed from `1` [Fan] to `2` [Grid]
     /usr/libexec/PlistBuddy -c "Delete :persistent-others" ~/Library/Preferences/com.apple.dock.plist
     
