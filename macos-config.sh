@@ -1444,13 +1444,13 @@ echo "Configured Menu Bar Extras"
 # # INSTALL HOMEBREW
 # #
 
-	if [ $(which brew) != "/usr/local/bin/brew" ]; then
+	if [[ $(which brew) != "/usr/local/bin/brew" ]]; then
 		# Homebrew
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 		echo "Installed Homebrew"
 		
-		if [ $(which bash) != "/usr/local/bin/bash" ]; then
+		if [[ $(which bash) != "/usr/local/bin/bash" ]]; then
 			# Bash
 			brew install bash
 			echo "/usr/local/bin/bash" | sudo tee -a /etc/shells  > /dev/null 2>&1
