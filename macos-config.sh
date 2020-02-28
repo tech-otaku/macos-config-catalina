@@ -1437,88 +1437,30 @@ echo "Configured Menu Bar Extras"
 # # DOCK FOLDERS
 # #
 
-# Delete `persistent-others` key from com.apple.dock.plist. For fresh installs this should only contain data on the Downloads folder and will be added back to the Dock below exactly the same except `showas` is changed from `1` [Fan] to `2` [Grid]
-    /usr/libexec/PlistBuddy -c "Delete :persistent-others" ~/Library/Preferences/com.apple.dock.plist
-
-
-# Add Downloads folder [back] to Dock and display in grid view
-GUID=$(/usr/bin/uuidgen)
-ARRANGEMENT=1
-DIRECTORY=1
-DISPLAYAS=1
-CFURLSTRING="${HOME}/Downloads"
-CFURLSTRINGTYPE=0
-FILELABEL="Downloads"
-FILETYPE=2
-SHOWAS=2
-TILETYPE="directory-tile"
-defaults write com.apple.dock persistent-others -array-add '<dict><key>GUID</key><string>'$GUID'</string><key>tile-data</key><dict><key>arrangement</key><integer>'$ARRANGEMENT'</integer><key>directory</key><integer>'$DIRECTORY'</integer><key>displayas</key><integer>'$DISPLAYAS'</integer><key>file-data</key><dict><key>_CFURLString</key><string>'$CFURLSTRING'</string><key>_CFURLStringType</key><integer>'$CFURLSTRINGTYPE'</integer></dict><key>file-label</key><string>'$FILELABEL'</string><key>file-type</key><integer>'$FILETYPE'</integer><key>showas</key><integer>'$SHOWAS'</integer></dict><key>tile-type</key><string>'$TILETYPE'</string></dict>';
-
-
-# Add Utilities folder to Dock and display in grid view
-GUID=$(/usr/bin/uuidgen)
-ARRANGEMENT=1
-DIRECTORY=1
-DISPLAYAS=1
-CFURLSTRING="/Applications/Utilities"
-CFURLSTRINGTYPE=0
-FILELABEL="Utilities"
-FILETYPE=2
-SHOWAS=2
-TILETYPE="directory-tile"
-defaults write com.apple.dock persistent-others -array-add '<dict><key>GUID</key><string>'$GUID'</string><key>tile-data</key><dict><key>arrangement</key><integer>'$ARRANGEMENT'</integer><key>directory</key><integer>'$DIRECTORY'</integer><key>displayas</key><integer>'$DISPLAYAS'</integer><key>file-data</key><dict><key>_CFURLString</key><string>'$CFURLSTRING'</string><key>_CFURLStringType</key><integer>'$CFURLSTRINGTYPE'</integer></dict><key>file-label</key><string>'$FILELABEL'</string><key>file-type</key><integer>'$FILETYPE'</integer><key>showas</key><integer>'$SHOWAS'</integer></dict><key>tile-type</key><string>'$TILETYPE'</string></dict>'
-
-
-
-# Add Applications folder to Dock and display in grid view
-GUID=$(/usr/bin/uuidgen)
-ARRANGEMENT=1
-DIRECTORY=1
-DISPLAYAS=1
-CFURLSTRING="/Applications"
-CFURLSTRINGTYPE=0
-FILELABEL="Applications"
-FILETYPE=2
-SHOWAS=2
-TILETYPE="directory-tile"
-defaults write com.apple.dock persistent-others -array-add '<dict><key>GUID</key><string>'$GUID'</string><key>tile-data</key><dict><key>arrangement</key><integer>'$ARRANGEMENT'</integer><key>directory</key><integer>'$DIRECTORY'</integer><key>displayas</key><integer>'$DISPLAYAS'</integer><key>file-data</key><dict><key>_CFURLString</key><string>'$CFURLSTRING'</string><key>_CFURLStringType</key><integer>'$CFURLSTRINGTYPE'</integer></dict><key>file-label</key><string>'$FILELABEL'</string><key>file-type</key><integer>'$FILETYPE'</integer><key>showas</key><integer>'$SHOWAS'</integer></dict><key>tile-type</key><string>'$TILETYPE'</string></dict>'
-
-
-# NOTE: Recent Folders no longer appear to work in Catalina
-
-# Add Recent Applications to Dock and display in grid view
-# Recent Applications = <key>list-type</key><integer>1</integer>
-# Icon size = <key>preferreditemsize</key><integer>-1</integer>
-# View content as Grid = <key>viewas</key><integer>2</integer>
-    #defaults write com.apple.dock persistent-others -array-add '<dict><key>tile-data</key><dict><key>list-type</key><integer>1</integer><key>preferreditemsize</key><integer>-1</integer><key>viewas</key><integer>2</integer></dict><key>tile-type</key><string>recents-tile</string></dict>'
-
-
-# Add Recent Documents to Dock and display in grid view
-# Recent Documents = <key>list-type</key><integer>2</integer>
-# Icon size = <key>preferreditemsize</key><integer>-1</integer>
-# View content as Grid = <key>viewas</key><integer>2</integer>
-    #defaults write com.apple.dock persistent-others -array-add '<dict><key>tile-data</key><dict><key>list-type</key><integer>2</integer><key>preferreditemsize</key><integer>-1</integer><key>viewas</key><integer>2</integer></dict><key>tile-type</key><string>recents-tile</string></dict>'
-    
-echo "Configured Dock Folders"
+# See dock-folders.sh
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # INSTALL HOMEBREW
 # #
 
-	# Homebrew
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	
-	# Bash
-	brew install bash
-	echo "/usr/local/bin/bash" | sudo tee -a /etc/shells  > /dev/null 2>&1
-	sudo chsh -s /usr/local/bin/bash steve
-	
-	#bash "$ScriptPath"/app-installer.sh iterm
-	
-echo "Installed Homebrew/Bash"
+	if [ $(which brew) != "/usr/local/bin/brew" ]; then
+		# Homebrew
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+		echo "Installed Homebrew"
+		
+		if [ $(which bash) != "/usr/local/bin/bash" ]; then
+			# Bash
+			brew install bash
+			echo "/usr/local/bin/bash" | sudo tee -a /etc/shells  > /dev/null 2>&1
+			sudo chsh -s /usr/local/bin/bash steve
 
+			echo "Installed Bash"
+		
+		fi
+
+	fi
 
 # Revoke sudo privileges
     sudo -k
@@ -1598,8 +1540,8 @@ fi
 #/usr/libexec/PlistBuddy /Users/steve/Library/Safari/Bookmarks.plist -c "Add :Children:1:Children:0:WebBookmarkType string WebBookmarkTypeLeaf"
 
 # Execute the AppleScript configuration script
-    osascript "$ScriptPath"/Scripts/Config\ All.scpt > /dev/null 2>&1
+    #osascript "$ScriptPath"/Scripts/Config\ All.scpt > /dev/null 2>&1
 
 
 # Some settings are only effective after the machine is restarted, so restart. Displays normal macOS restart dialog.
-	osascript -e 'tell app "loginwindow" to «event aevtrrst»'
+	#osascript -e 'tell app "loginwindow" to «event aevtrrst»'
