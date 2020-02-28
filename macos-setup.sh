@@ -305,9 +305,9 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 		imagecapture)	# Image Capture.app
 			;;
 		iterm)			# iTerm.app
-			move_directory_entry "D" "$SOURCE/.iterm2" "/Users/steve/.iterm2"
-			move_directory_entry "F" "$SOURCE/.iterm2_shell_integration.bash" "/Users/steve/.iterm2_shell_integration.bash"
-			move_directory_entry "D" "$SOURCE/Library/Application Support/iTerm" "/Users/steve/Library/Application Support/iTerm"
+			#move_directory_entry "D" "$SOURCE/.iterm2" "/Users/steve/.iterm2"
+			#move_directory_entry "F" "$SOURCE/.iterm2_shell_integration.bash" "/Users/steve/.iterm2_shell_integration.bash"
+			#move_directory_entry "D" "$SOURCE/Library/Application Support/iTerm" "/Users/steve/Library/Application Support/iTerm"
 			move_directory_entry "D" "$SOURCE/Library/Application Support/iTerm2" "/Users/steve/Library/Application Support/iTerm2"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.googlecode.iterm2.plist" "/Users/steve/Library/Preferences/com.googlecode.iterm2.plist"
 			;;
@@ -540,13 +540,17 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			;;
 		# * * * * MISCELLANEOUS * * * *
 		bash)
-			create_symbolic_link "/Users/steve/Dropbox/.bash_history_shared" "/Users/steve/.bash_history"
-			create_symbolic_link "/Users/steve/Dropbox/.bash_profile_shared" "/Users/steve/.bash_profile"
-			move_directory_entry "F" "$SOURCE/.hushlogin" "/Users/steve/.hushlogin"
+			#create_symbolic_link "/Users/steve/Dropbox/.bash_history_shared" "/Users/steve/.bash_history"
+			create_symbolic_link "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/bash/.bash_profile_shared" "${HOME}/.bash_profile"
+			if [ -f "$SOURCE/.hushlogin" ]; then
+				move_directory_entry "F" "$SOURCE/.hushlogin" "${HOME}/.hushlogin"
+			fi
 			;;
 		zsh)
-			move_directory_entry "F" "$SOURCE/.hushlogin" "/Users/steve/.hushlogin"
-			move_directory_entry "F" "$SOURCE/.zshenv" "/Users/steve/.zshenv"
+			move_directory_entry "F" "$SOURCE/.zshenv" "${HOME}/.zshenv"
+			if [ -f "$SOURCE/.hushlogin" ]; then 
+				move_directory_entry "F" "$SOURCE/.hushlogin" "${HOME}/.hushlogin"
+			fi
 			;;
 		fonts)
 			move_directory_entry "D" "$SOURCE/Library/Fonts" "/Users/steve/Library/Fonts"
