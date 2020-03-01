@@ -152,7 +152,7 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			#if [ $? == 0 ]; then echo `date '+%Y-%m-%d %H:%M:%S'` "[D103:$APP] Deleted source folder \"$SOURCE/Public\"" >> ~/$LOG; fi
 			;;
 		# * * * * APPLICATIONS * * * *
-		1pass)			# 1Password Command Line Tool
+		1pass)			# 1Password Command-Line Tool
 			move_directory_entry "D" "$SOURCE/.1pass" "/Users/steve/.1pass"
 			move_directory_entry "D" "$SOURCE/.op" "/Users/steve/.op"
 			;;
@@ -512,12 +512,12 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			;;
 		whitenoise)		# WhiteNoiseFree.app
 			;;
+		wpcli)			# WordPress Command-Line Tool
+			create_symbolic_link "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.wp-cli_shared" "${HOME}/.wp-cli"
+			;;
 		xampp)			# XAMPP
 			;;
 		xcode)			# Xcode.app”
-			;;
-		wpcli
-			create_symbolic_link "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.wp-cli_shared" "${HOME}/.wp-cli"
 			;;
 		# * * * * REMAINING SOURCE FILES AND FOLDERS * * * *
 		remaining)
