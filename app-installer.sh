@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# USAGE: [bash] ${HOME}/macos-config-catalina-master/app-installer.sh <app>
+
 BBEDIT="13.0.4"
 EVERNOTE="7.13_458080"
 FORKLIFT="3.3.7"
@@ -7,8 +9,6 @@ LITTLESNITCH="4.4.3"
 LOGITECH="8.10.64"
 NAVICAT="121"
 QUERIOUS="2.1.17"
-
-https://download01.logi.com/web/ftp/pub/techsupport/options/Options_8.10.64.zip
 
 case "$1" in
 	adguard)

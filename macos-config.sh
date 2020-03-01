@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# USAGE: [bash] ${HOME}/macos-config-catalina-master/macos-config.sh
+
 # NSGlobalDomain is synonymous with .GlobalPreferences
 # '-g' and '-globalDomain' can be used as synonyms for NSGlobalDomain or .GlobalPreferences
 

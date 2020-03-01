@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# USAGE: [bash] ${HOME}/macos-config-catalina-master/dock-folders.sh
+
 	# arrangement			ARRANGEMENT				[1=Name, 2=Date Added, 3=Date Modified, 4=Date Created, 5=Kind]
 	# directory				DIRECTORY				[??]
 	# displayas				DISPLAYAS				[0=Stack, 1=Folder]

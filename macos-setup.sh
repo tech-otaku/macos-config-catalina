@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Steve Ward: 2018-03-31
 
-# USAGE: . /Users/steve/Dropbox/Scripts/macOS\ Configuration/test.sh [APP]
-# The `. + space` before the script name is important as it runs the script in the current shell making script variables persistent. Source: https://unix.stackexchange.com/questions/30189/how-can-i-make-environment-variables-exported-in-a-shell-script-stick-around
+# USAGE: [bash] ${HOME}/macos-config-catalina-master/macos-setup.sh <app>
 
 main () {	# See https://stackoverflow.com/questions/13588457/forward-function-declarations-in-a-bash-or-a-shell-script for explanation of main()
 
