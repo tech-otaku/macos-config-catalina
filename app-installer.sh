@@ -4,8 +4,11 @@ BBEDIT="13.0.4"
 EVERNOTE="7.13_458080"
 FORKLIFT="3.3.7"
 LITTLESNITCH="4.4.3"
+LOGITECH="8.10.64"
 NAVICAT="121"
 QUERIOUS="2.1.17"
+
+https://download01.logi.com/web/ftp/pub/techsupport/options/Options_8.10.64.zip
 
 case "$1" in
 	adguard)
@@ -94,6 +97,13 @@ case "$1" in
 		hdiutil attach ~/Downloads/LittleSnitch-${LITTLESNITCH}.dmg
 		#open /Volumes/Little\ Snitch\ 4.3.2
 		open /Volumes/Little\ Snitch\ ${LITTLESNITCH}/Little\ Snitch\ Installer.app
+		;;
+	logitech)
+		[ -f ~/Downloads/Options_${LOGITECH}.zip ] && rm ~/Downloads/Options_${LOGITECH}.zip
+		curl -o ~/Downloads/Options_${LOGITECH}.zip -L https://download01.logi.com/web/ftp/pub/techsupport/options/Options_${LOGITECH}.zip
+		cd ~/Downloads
+		unzip -o ~/Downloads/Options_${LOGITECH}.zip
+		open ~/Downloads/LogiMgr\ Installer\ ${LOGITECH}.app
 		;;
 	navicat-mysql)
 		[ -f ~/Downloads/navicat${NAVICAT}_mysql_en.dmg ] && rm ~/Downloads/navicat${NAVICAT}_mysql_en.dmg
