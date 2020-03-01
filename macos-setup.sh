@@ -294,6 +294,9 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			move_directory_entry "D" "$SOURCE/Library/Google" "/Users/steve/Library/Google"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.google.Chrome.plist" "/Users/steve/Library/Preferences/com.google.Chrome.plist"
 			;;
+		hcloud)
+			move_directory_entry "D" "$SOURCE/.config" "/Users/steve/.config"
+			;;
 		hewlett)		# Hewlett-Packard
 			;;
 		hex)			# Hex Fiend.app
