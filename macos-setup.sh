@@ -320,6 +320,9 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.apple.iTunes.plugins" "/Users/steve/Library/Preferences/com.apple.iTunes.plugins"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.apple.iTunes.utls.plist" "/Users/steve/Library/Preferences/com.apple.iTunes.utls.plist"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.apple.iTunesHelper.plist" "/Users/steve/Library/Preferences/com.apple.iTunesHelper.plist"
+			move_directory_entry "D" "$SOURCE/Library/Music" "/Users/steve/Library/Music"	
+			move_directory_entry "F" "$SOURCE/Library/Preferences/com.apple.Music.eq.plist" "/Users/steve/Library/Preferences/com.apple.Music.eq.plist"
+			move_directory_entry "F" "$SOURCE/Library/Preferences/com.apple.Music.plist" "/Users/steve/Library/Preferences/com.apple.Music.plist"
 			;;
 		ivacy)			# Ivacy.app
 			move_directory_entry "D" "$SOURCE/Library/Application Support/gaditek.Ivacy.com" "/Users/steve/Library/Application Support/gaditek.Ivacy.com"
