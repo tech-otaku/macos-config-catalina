@@ -516,6 +516,9 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			;;
 		xcode)			# Xcode.app”
 			;;
+		wpcli
+			create_symbolic_link "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.wp-cli_shared" "${HOME}/.wp-cli"
+			;;
 		# * * * * REMAINING SOURCE FILES AND FOLDERS * * * *
 		remaining)
 
