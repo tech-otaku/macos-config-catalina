@@ -1442,6 +1442,24 @@ echo "Configured Menu Bar Extras"
 # See dock-folders.sh
 
 
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # #
+# #  ROOT COMMAND PROMPT
+# #
+
+	# The default shell for root is /bin/sh. The file /var/root/.profile is read when an admin user types 'sudo -i' or 'sudo su -l' (but not 'sudo su' nor 'sudo -s').
+	# Change the command prompt for the root user to distinguish it from any other user's command prompt by creating /var/root/.profile 
+	
+	cat <<'EOF' | sudo tee /var/root/.profile
+printf "Sourcing /var/root/.profile\n\n"
+
+export PS1="\[\e[1;31m\]\u\[\e[0m\]: \[\e[1m\]\W\[\e[0m\] \[\e[36m\]$\[\e[0m\] "
+EOF
+
+
+
+
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # INSTALL HOMEBREW
 # #
