@@ -22,7 +22,7 @@ for o in "${orphans[@]}"; do
 		read -p "Delete '${ORPHAN}'  (Y/n)? " DELETE
 		if [[ $DELETE =~ "Y" ]]; then
 			rm -rf "${ORPHAN}"
-			[ $? -eq 0 ] && printf "Orphan directory deleted.\n"
+			[ $? -eq 0 ] && printf "Orphan directory will be deleted.\n"
 		fi
 	
 	fi
