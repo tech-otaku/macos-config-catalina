@@ -317,7 +317,7 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			move_directory_entry "D" "$SOURCE/Library/Application Support/iTerm2" "/Users/steve/Library/Application Support/iTerm2"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.googlecode.iterm2.plist" "/Users/steve/Library/Preferences/com.googlecode.iterm2.plist"
 			;;
-		itunes)			# iTunes.app
+		itunes)			# iTunes.app / Music.app
 			move_directory_entry "D" "$SOURCE/Library/iTunes" "/Users/steve/Library/iTunes"	
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.apple.iPod.plist" "/Users/steve/Library/Preferences/com.apple.iPod.plist"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.apple.iTunes.eq.plist" "/Users/steve/Library/Preferences/com.apple.iTunes.eq.plist"
