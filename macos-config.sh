@@ -122,27 +122,17 @@ EOD
 
 # System Preferences > General > Appearance
     # Light (For this mode neither "AppleInterfaceStyle" nor "AppleInterfaceStyleSwitchesAutomatically" mustn't exist so delete them both)
-<<<<<<< HEAD
         #defaults delete -g AppleInterfaceStyle 2> /dev/null                             # Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
         #defaults delete -g AppleInterfaceStyleSwitchesAutomatically 2> /dev/null        # Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
-=======
-    #defaults delete -g AppleInterfaceStyle 2> /dev/null     						# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
-    #defaults delete -g AppleInterfaceStyleSwitchesAutomatically 2> /dev/null		# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
->>>>>>> dd54a91f5641f127f4955019921b169d4fbfd8be
     
     # Dark  (For this mode "AppleInterfaceStyleSwitchesAutomatically" mustn't exist so delete it)
         #defaults write -g AppleInterfaceStyle -string Dark
         #defaults delete -g AppleInterfaceStyleSwitchesAutomatically 2> /dev/null        # Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
     
     # Automatic  (For this mode "AppleInterfaceStyle" mustn't exist so delete it)
-<<<<<<< HEAD
         defaults delete -g AppleInterfaceStyle 2> /dev/null                             # Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
         defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
  
-=======
-    defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
-    defaults delete -g AppleInterfaceStyle 2> /dev/null     						# Defaults throws an error if the key does not exist, so write STDERR to /dev/null to surpress error messages
->>>>>>> dd54a91f5641f127f4955019921b169d4fbfd8be
 
 
 # System Preferences > General > Accent Colour
@@ -285,7 +275,6 @@ echo "...General"
 
 # System Preferences > Desktop & Screen Saver > Desktop
 
-<<<<<<< HEAD
     # The Desktop picture is set using 'set-desktop.sh'. See https://github.com/tech-otaku/macos-desktop/blob/main/README.md
     
     pushd $ScriptPath
@@ -299,22 +288,6 @@ echo "...General"
     ./set-desktop.sh $DesktopPicture
     popd
     
-=======
-
-	# The Desktop picture is set using 'set-desktop-catalina.sh'. See https://github.com/tech-otaku/macos-desktop/blob/master/README.md
-
-	pushd $ScriptPath
-	
-	if [ ! -f set-desktop.sh ]; then
-		curl -o "set-desktop.sh" -L https://raw.githubusercontent.com/tech-otaku/macos-desktop/master/set-desktop.sh
-		curl -o "options.json" -L https://raw.githubusercontent.com/tech-otaku/macos-desktop/master/options.json
-	fi
-	
-	chmod +x set-desktop.sh
-	./set-desktop.sh $DESKTOP
-	popd
-	
->>>>>>> dd54a91f5641f127f4955019921b169d4fbfd8be
 
 # System Preferences > Desktop & Screen Saver > Screen Saver > Start after
     # Never
@@ -1548,10 +1521,6 @@ EOF
     #dscl . -delete /Users/$USER JPEGPhoto
     #dsimport ${TEMPFILE} /Local/Default M -u $USER
     #rm ${TEMPFILE}
-<<<<<<< HEAD
-
-=======
->>>>>>> dd54a91f5641f127f4955019921b169d4fbfd8be
 echo "Updated user photo"
 
 
